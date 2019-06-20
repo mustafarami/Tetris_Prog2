@@ -5,7 +5,9 @@ public class MyPiece implements Piece {
 	private boolean[][] piece;
 	private PieceType pieceType;
 	private Point rotationPoint;
-	 
+	enum Rotation_time {
+		first, second, third, fourth;
+	}
 	public MyPiece(PieceType pt) throws Exception {
 
 		pieceType = pt;
