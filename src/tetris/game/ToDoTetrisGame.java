@@ -3,9 +3,9 @@ package tetris.game;
 import java.util.Random;
 
 //import sun.security.mscapi.KeyStore.MY;
-import sun.security.provider.ConfigFile.Spi;
-import tetris.game.pieces.MyPiece;
-import tetris.game.pieces.MyPieceFactory;
+//import sun.security.provider.ConfigFile.Spi;
+//import tetris.game.pieces.MyPiece;
+//import tetris.game.pieces.MyPieceFactory;
 import tetris.game.pieces.Piece;
 import tetris.game.pieces.Piece.PieceType;
 
