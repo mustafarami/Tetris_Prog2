@@ -51,8 +51,8 @@ public class MyBoard implements Board {
 			for (int i = 0; i < Body.length; i++) {
 
 				for (int j = 0; j < Body[0].length; j++) {
-					x0 = i - x;
-					y0 = j - y;
+					x0 = x - i;
+					y0 = y - j;
 					if (Body[i][j]) {
 						board[x0 + row][y0 + column] = pt;
 					}
@@ -83,8 +83,8 @@ public class MyBoard implements Board {
 		for (int i = 0; i < Body.length; i++) {
 			for (int j = 0; j < Body[0].length; j++) {
 				if (Body[i][j]) {
-					x0 = i - x;
-					y0 = j - y;
+					x0 =  x - i;
+					y0 =  y - j;
 					if (board[x0 + row][y0 + column] == null) {
 						logik = true;
 					} else {
@@ -114,8 +114,8 @@ public class MyBoard implements Board {
 			for (int i = 0; i < Body.length; i++) {
 				for (int j = 0; j < Body[0].length; j++) {
 					if (Body[i][j]) {
-						x0 = i - x;
-						y0 = j - y;
+						x0 = x - i;
+						y0 = y - j;
 						board[x0 + row][y0 + column] = null;
 					}
 
@@ -145,8 +145,8 @@ public class MyBoard implements Board {
 		for (int i = 0; i < Body.length; i++) {
 			for (int j = 0; j < Body[0].length; j++) {
 				if (Body[i][j]) {
-					x0 = i - x;
-					y0 = j - y;
+					x0 = x - i;
+					y0 = y - j;
 					if (pt.equals(board[x0 + row][y0 + column])) {
 						logik = true;
 					} else {
