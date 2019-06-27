@@ -16,9 +16,9 @@ public class MyBoard implements Board {
 	private boolean[][] Body;
 	private Point Rotation_Point;
 
-	public MyBoard() {
+	public MyBoard(int h, int w) {
 
-		board = new PieceType[height][width];
+		board = new PieceType[h][w];
 	}
 
 	@Override
@@ -28,12 +28,12 @@ public class MyBoard implements Board {
 
 	@Override
 	public int getNumberOfRows() { // ?
-		return height;
+		return board.length;
 	}
 
 	@Override
 	public int getNumberOfColumns() { // ?
-		return width;
+		return board[0].length;
 	}
 
 	@Override
@@ -170,9 +170,7 @@ public class MyBoard implements Board {
 
 		for (int r = 0; r < getNumberOfRows(); r++) {
 
-			if (last_row == 0) {
-				break;
-			}
+			
 
 			for (int i = 0; i < getNumberOfColumns(); i++) { // check if a row is completed
 
@@ -191,6 +189,10 @@ public class MyBoard implements Board {
 					board[last_row][i] = null;
 
 				}
+				
+				if (last_row == 0) {
+					break;
+				}
 
 				for (int i = last_row; i > 0; i--) {
 					for (int j = 0; j < getNumberOfColumns(); j++) {
@@ -201,6 +203,8 @@ public class MyBoard implements Board {
 				}
 
 				ret++;
+//				last_row--;
+			} else {
 				last_row--;
 			}
 
@@ -215,7 +219,7 @@ public class MyBoard implements Board {
 	public Board clone() {
 
 		Board newBoard = null;
-		newBoard = new MyBoard();
+		newBoard = new MyBoard(board.length, board[0].length);
 
 		for (int i = 0; i < height; i++) {
 			for (int j = 0; j < width; j++) {

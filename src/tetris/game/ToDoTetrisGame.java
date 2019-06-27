@@ -38,7 +38,7 @@ public class ToDoTetrisGame implements TetrisGame {
 
 	@Override
 	public Board getBoard() {
-		SpielPlatz = new MyBoard();
+		SpielPlatz = new MyBoard(MyTetrisFactory.DEFAULT_COLUMNS, MyTetrisFactory.DEFAULT_ROWS);
 		return SpielPlatz;
 	}
 

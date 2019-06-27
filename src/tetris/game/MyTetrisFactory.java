@@ -54,7 +54,7 @@ public class MyTetrisFactory {
 	 *            the number of columns
 	 */
 	static public Board createBoard(int rows, int columns) {
-		MyBoard neuBoard = new MyBoard();
+		MyBoard neuBoard = new MyBoard(rows, columns);
 		return neuBoard;
 	}
 
