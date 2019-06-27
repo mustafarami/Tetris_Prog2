@@ -8,7 +8,7 @@ import tetris.game.pieces.Piece.PieceType;
  * can be added and removed from the board.
  */
 public interface Board {
-
+ 
 	/**
 	 * Returns the underlying board array.
 	 *
