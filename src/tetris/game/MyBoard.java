@@ -85,6 +85,9 @@ public class MyBoard implements Board {
 				if (Body[i][j]) {
 					x0 =  x - i;
 					y0 =  y - j;
+					if(x0 + row < 0 || x0 + row >= Body.length || y0 + column < 0 || y0 + column >= Body[0].length) {
+						return false;
+					}  // added new
 					if (board[x0 + row][y0 + column] == null) {
 						logik = true;
 					} else {
@@ -147,6 +150,11 @@ public class MyBoard implements Board {
 				if (Body[i][j]) {
 					x0 = x - i;
 					y0 = y - j;
+					
+					if(x0 + row < 0 || x0 + row >= Body.length || y0 + column < 0 || y0 + column >= Body[0].length) {
+						return false;
+					}  // added new
+					
 					if (pt.equals(board[x0 + row][y0 + column])) {
 						logik = true;
 					} else {
