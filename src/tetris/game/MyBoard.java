@@ -10,15 +10,18 @@ import tetris.game.pieces.Piece.PieceType;
 import tetris.game.pieces.Point;
 
 public class MyBoard implements Board {
-	private int height = MyTetrisFactory.DEFAULT_ROWS; // ?
-	private int width = MyTetrisFactory.DEFAULT_COLUMNS;
+//	private int height = MyTetrisFactory.DEFAULT_ROWS; // ?
+//	private int width = MyTetrisFactory.DEFAULT_COLUMNS;
+	private int height = 0;
+	private int width = 0;
 	private PieceType[][] board;
 	private boolean[][] Body;
 //	private Point Rotation_Point;
 
 	public MyBoard(int h, int w) {
-
-		board = new PieceType[h][w];
+		this.height = h;
+		this.width = w;
+		board = new PieceType[height][width];
 	}
 
 	@Override
@@ -164,7 +167,6 @@ public class MyBoard implements Board {
 				}
 			}
 
-			
 		}
 		return logik;
 

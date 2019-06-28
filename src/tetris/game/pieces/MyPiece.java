@@ -54,9 +54,7 @@ public class MyPiece implements Piece {
 			case fourth:
 				this.piece = I_two;
 				this.rotationPoint = new Point(0, 1);
-
 				this.rotation = Rotation_time.fourth;
-
 				break;
 			default:
 				break;
