@@ -32,102 +32,192 @@ public class MyPiece implements Piece {
 	}
 
 	public MyPiece(PieceType pt, Rotation_time rot) {
-		rotation = rot;
-		pieceType = pt;
-		switch (pieceType) {
+		Rotation_time rotation = rot;
+		switch (pt) {
 		case I:
+			switch (rotation) {
+			case first:
+				this.piece = I_one;
+				this.rotationPoint = new Point(1, 02);
+				this.rotation = Rotation_time.first;
+				break;
+			case secound:
+				this.piece = I_two;
+				this.rotationPoint = new Point(2, 0);
+				this.rotation = Rotation_time.third;
+				break;
+			case third:
+				this.piece = I_two;
+				this.rotationPoint = new Point(0, 1);
+				this.rotation = Rotation_time.fourth;
+				break;
+			case fourth:
+				this.piece = I_one;
+				this.rotationPoint = new Point(0, 2);
 
-			piece = new boolean[4][1];
-			rotationPoint = new Point(1, 0);
-			piece[0][0] = true;
-			piece[1][0] = true;
-			piece[2][0] = true;
-			piece[3][0] = true;
-			break;
+				this.rotation = Rotation_time.first;
+
+				break;
+			default:
+				break;
+			}
 		case J:
-			piece = new boolean[3][2];
-			rotationPoint = new Point(1, 1);
-			piece[0][0] = false;
-			piece[1][0] = false;
-			piece[2][0] = true;
-			piece[0][1] = true;
-			piece[1][1] = true;
-			piece[2][1] = true;
-			break;
+			switch (rotation) {
+			case first:
+				this.piece = J_two;
+				this.rotationPoint = new Point(1, 1);
+				this.rotation = Rotation_time.secound;
+				break;
+			case secound:
+				this.piece = J_three;
+				this.rotationPoint = new Point(1, 0);
+				this.rotation = Rotation_time.third;
+				break;
+			case third:
+				this.piece = J_four;
+				this.rotationPoint = new Point(0, 1);
+				this.rotation = Rotation_time.fourth;
+				break;
+			case fourth:
+				this.piece = J_one;
+				this.rotationPoint = new Point(1, 1);
+				this.rotation = Rotation_time.first;
+				break;
+			default:
+				break;
+			}
 		case L:
-			piece = new boolean[3][2];
-			rotationPoint = new Point(1, 0);
-			piece[0][0] = true;
-			piece[1][0] = true;
-			piece[2][0] = true;
-			piece[0][1] = false;
-			piece[1][1] = false;
-			piece[2][1] = true;
-			break;
+			switch (rotation) {
+			case first:
+				this.piece = L_two;
+				this.rotationPoint = new Point(0, 1);
+				this.rotation = Rotation_time.secound;
+				break;
+			case secound:
+				this.piece = L_three;
+				this.rotationPoint = new Point(1, 1);
+				this.rotation = Rotation_time.third;
+				break;
+			case third:
+				this.piece = L_four;
+				this.rotationPoint = new Point(1, 1);
+				this.rotation = Rotation_time.fourth;
+				break;
+			case fourth:
+				this.piece = L_one;
+				this.rotationPoint = new Point(1, 0);
+				this.rotation = Rotation_time.first;
+				break;
+			default:
+				break;
+			}
+
 		case O:
-			piece = new boolean[2][2];
-			rotationPoint = new Point(1, 1);
-			piece[0][0] = true;
-			piece[1][0] = true;
-			piece[0][1] = true;
-			piece[1][1] = true;
-			break;
+			switch (rotation) {
+			case first:
+				this.piece = O_one;
+				this.rotationPoint = new Point(1, 0);
+				this.rotation = Rotation_time.secound;
+				break;
+			case secound:
+				this.piece = O_one;
+				this.rotationPoint = new Point(0, 0);
+				this.rotation = Rotation_time.third;
+				break;
+			case third:
+				this.piece = O_one;
+				this.rotationPoint = new Point(0, 1);
+				this.rotation = Rotation_time.fourth;
+				break;
+			case fourth:
+				this.piece = O_one;
+				this.rotationPoint = new Point(1, 1);
+				this.rotation = Rotation_time.first;
+				break;
+			default:
+				break;
+			}
 		case S:
-			piece = new boolean[2][3];
-			rotationPoint = new Point(1, 1);
-			piece[0][0] = false;
-			piece[0][1] = true;
-			piece[0][2] = true;
-			piece[1][0] = true;
-			piece[1][1] = true;
-			piece[1][2] = false;
-			break;
+			switch (rotation) {
+			case first:
+				this.piece = S_two;
+				this.rotationPoint = new Point(1, 0);
+				this.rotation = Rotation_time.secound;
+				break;
+			case secound:
+				this.piece = S_one;
+				this.rotationPoint = new Point(0, 1);
+				this.rotation = Rotation_time.third;
+				break;
+			case third:
+				this.piece = S_two;
+				this.rotationPoint = new Point(1, 1);
+				this.rotation = Rotation_time.fourth;
+				break;
+			case fourth:
+				this.piece = S_one;
+				this.rotationPoint = new Point(1, 1);
+				this.rotation = Rotation_time.first;
+				break;
+			default:
+				break;
+			}
 		case T:
-			piece = new boolean[2][3];
-			rotationPoint = new Point(0, 1);
-			piece[0][0] = true;
-			piece[0][1] = true;
-			piece[0][2] = true;
-			piece[1][0] = false;
-			piece[1][1] = true;
-			piece[1][2] = false;
-			break;
+			switch (rotation) {
+			case first:
+				this.piece = T_tow;
+				this.rotationPoint = new Point(1, 1);
+				this.rotation = Rotation_time.secound;
+				break;
+			case secound:
+				this.piece = T_three;
+				this.rotationPoint = new Point(1, 1);
+				this.rotation = Rotation_time.third;
+				break;
+			case third:
+				this.piece = T_four;
+				this.rotationPoint = new Point(0, 1);
+				this.rotation = Rotation_time.fourth;
+				break;
+			case fourth:
+				this.piece = T_one;
+				this.rotationPoint = new Point(1, 0);
+				this.rotation = Rotation_time.first;
+				break;
+			default:
+				break;
+			}
 		case Z:
-			piece = new boolean[2][3];
-			rotationPoint = new Point(1, 1);
-			piece[0][0] = true;
-			piece[0][1] = true;
-			piece[0][2] = false;
-			piece[1][0] = false;
-			piece[1][1] = true;
-			piece[1][2] = true;
+			switch (rotation) {
+			case first:
+				this.piece = Z_two;
+				this.rotationPoint = new Point(1, 0);
+				this.rotation = Rotation_time.secound;
+				break;
+			case secound:
+				this.piece = Z_one;
+				this.rotationPoint = new Point(0, 1);
+				this.rotation = Rotation_time.third;
+				break;
+			case third:
+				this.piece = Z_two;
+				this.rotationPoint = new Point(1, 1);
+				this.rotation = Rotation_time.fourth;
+				break;
+			case fourth:
+				this.piece = Z_one;
+				this.rotationPoint = new Point(1, 1);
+				this.rotation = Rotation_time.first;
+				break;
+			default:
+				break;
+			}
+		default:
 			break;
-		}
-
-		if (rot == Rotation_time.secound) { // the true one
-			MyPiece p = (MyPiece) getClockwiseRotation();
-			this.piece = p.piece;
-			this.rotation = p.rotation;
-			this.rotationPoint = p.rotationPoint;
-		}
-
-		if (rot == Rotation_time.third) {
-			MyPiece p = (MyPiece) (getClockwiseRotation()).getClockwiseRotation();
-			this.piece = p.piece;
-			this.rotation = p.rotation;
-			this.rotationPoint = p.rotationPoint;
-		}
-
-		if (rot == Rotation_time.fourth) {
-			MyPiece p = (MyPiece) getCounterClockwiseRotation();
-			this.piece = p.piece;
-			this.rotation = p.rotation;
-			this.rotationPoint = p.rotationPoint;
 		}
 
 	}
-	
-	
+
 	@Override
 	public int getWidth() {
 		return piece[0].length;
@@ -145,376 +235,218 @@ public class MyPiece implements Piece {
 
 	@Override
 	public Piece getClockwiseRotation() {
-		MyPiece p = new MyPiece(pieceType, rotation);
-		switch (pieceType) {
-		case I:
-			switch (rotation) {
-			case first:
-				p.piece = I_two;
-				p.rotationPoint = new Point(0, 2);
-				p.rotation = Rotation_time.secound;
-				break;
-			case secound:
-				p.piece = I_one;
-				p.rotationPoint = new Point(2, 0);
-				p.rotation = Rotation_time.third;
-				break;
-			case third:
-				p.piece = I_two;
-				p.rotationPoint = new Point(0, 1);
-				p.rotation = Rotation_time.fourth;
-				break;
-			case fourth:
-				p.piece = I_one;
-				p.rotationPoint = new Point(0, 2);
-
-				p.rotation = Rotation_time.first;
-
-				break;
-			default:
-				break;
-			}
-		case J:
-			switch (rotation) {
-			case first:
-				p.piece = J_two;
-				p.rotationPoint = new Point(1, 1);
-				p.rotation = Rotation_time.secound;
-				break;
-			case secound:
-				p.piece = J_three;
-				p.rotationPoint = new Point(1, 0);
-				p.rotation = Rotation_time.third;
-				break;
-			case third:
-				p.piece = J_four;
-				p.rotationPoint = new Point(0, 1);
-				p.rotation = Rotation_time.fourth;
-				break;
-			case fourth:
-				p.piece = J_one;
-				p.rotationPoint = new Point(1, 1);
-				p.rotation = Rotation_time.first;
-				break;
-			default:
-				break;
-			}
-		case L:
-			switch (rotation) {
-			case first:
-				p.piece = L_two;
-				p.rotationPoint = new Point(0, 1);
-				p.rotation = Rotation_time.secound;
-				break;
-			case secound:
-				p.piece = L_three;
-				p.rotationPoint = new Point(1, 1);
-				p.rotation = Rotation_time.third;
-				break;
-			case third:
-				p.piece = L_four;
-				p.rotationPoint = new Point(1, 1);
-				p.rotation = Rotation_time.fourth;
-				break;
-			case fourth:
-				p.piece = L_one;
-				p.rotationPoint = new Point(1, 0);
-				p.rotation = Rotation_time.first;
-				break;
-			default:
-				break;
-			}
-
-		case O:
-			switch (rotation) {
-			case first:
-				p.piece = O_one;
-				p.rotationPoint = new Point(1, 0);
-				p.rotation = Rotation_time.secound;
-				break;
-			case secound:
-				p.piece = O_one;
-				p.rotationPoint = new Point(0, 0);
-				p.rotation = Rotation_time.third;
-				break;
-			case third:
-				p.piece = O_one;
-				p.rotationPoint = new Point(0, 1);
-				p.rotation = Rotation_time.fourth;
-				break;
-			case fourth:
-				p.piece = O_one;
-				p.rotationPoint = new Point(1, 1);
-				p.rotation = Rotation_time.first;
-				break;
-			default:
-				break;
-			}
-		case S:
-			switch (rotation) {
-			case first:
-				p.piece = S_two;
-				p.rotationPoint = new Point(1, 0);
-				p.rotation = Rotation_time.secound;
-				break;
-			case secound:
-				p.piece = S_one;
-				p.rotationPoint = new Point(0, 1);
-				p.rotation = Rotation_time.third;
-				break;
-			case third:
-				p.piece = S_two;
-				p.rotationPoint = new Point(1, 1);
-				p.rotation = Rotation_time.fourth;
-				break;
-			case fourth:
-				p.piece = S_one;
-				p.rotationPoint = new Point(1, 1);
-				p.rotation = Rotation_time.first;
-				break;
-			default:
-				break;
-			}
-		case T:
-			switch (rotation) {
-			case first:
-				p.piece = T_tow;
-				p.rotationPoint = new Point(1, 1);
-				p.rotation = Rotation_time.secound;
-				break;
-			case secound:
-				p.piece = T_three;
-				p.rotationPoint = new Point(1, 1);
-				p.rotation = Rotation_time.third;
-				break;
-			case third:
-				p.piece = T_four;
-				p.rotationPoint = new Point(0, 1);
-				p.rotation = Rotation_time.fourth;
-				break;
-			case fourth:
-				p.piece = T_one;
-				p.rotationPoint = new Point(1, 0);
-				p.rotation = Rotation_time.first;
-				break;
-			default:
-				break;
-			}
-		case Z:
-			switch (rotation) {
-			case first:
-				p.piece = Z_two;
-				p.rotationPoint = new Point(1, 0);
-				p.rotation = Rotation_time.secound;
-				break;
-			case secound:
-				p.piece = Z_one;
-				p.rotationPoint = new Point(0, 1);
-				p.rotation = Rotation_time.third;
-				break;
-			case third:
-				p.piece = Z_two;
-				p.rotationPoint = new Point(1, 1);
-				p.rotation = Rotation_time.fourth;
-				break;
-			case fourth:
-				p.piece = Z_one;
-				p.rotationPoint = new Point(1, 1);
-				p.rotation = Rotation_time.first;
-				break;
-			default:
-				break;
-			}
-		default:
-			break;
-		}
-
+		if(this.rotation == Rotation_time.first) {
+		MyPiece p = new MyPiece(pieceType, Rotation_time.secound);
+				return p;
+		}else if(this.rotation == Rotation_time.secound) {
+			MyPiece p = new MyPiece(pieceType, Rotation_time.third);
+			return p;
+		} else if(this.rotation == Rotation_time.third) {
+			MyPiece p = new MyPiece(pieceType, Rotation_time.fourth);
+			return p;
+		} else { MyPiece p = new MyPiece(pieceType, Rotation_time.first);
 		return p;
+		}
+		
 	}
 
 	@Override
 	public Piece getCounterClockwiseRotation() {
-		MyPiece p = new MyPiece(pieceType, rotation);
-		switch (pieceType) {
-		case I:
-			switch (rotation) {
-			case first:
-				p.piece = I_two;
-				p.rotationPoint = new Point(0, 1);
-				p.rotation = Rotation_time.fourth;
-				break;
-			case secound:
-				p.piece = I_one;
-				p.rotationPoint = new Point(1, 0);
-				p.rotation = Rotation_time.first;
-				break;
-			case third:
-				p.piece = I_two;
-				p.rotationPoint = new Point(0, 2);
-				p.rotation = Rotation_time.secound;
-				break;
-			case fourth:
-				p.piece = I_one;
-				p.rotationPoint = new Point(2, 0);
-				p.rotation = Rotation_time.third;
-				break;
-			default:
-				break;
+//		MyPiece p = new MyPiece(pieceType, rotation);
+//		switch (pieceType) {
+//		case I:
+//			switch (rotation) {
+//			case first:
+//				p.piece = I_two;
+//				p.rotationPoint = new Point(0, 1);
+//				p.rotation = Rotation_time.fourth;
+//				break;
+//			case secound:
+//				p.piece = I_one;
+//				p.rotationPoint = new Point(1, 0);
+//				p.rotation = Rotation_time.first;
+//				break;
+//			case third:
+//				p.piece = I_two;
+//				p.rotationPoint = new Point(0, 2);
+//				p.rotation = Rotation_time.secound;
+//				break;
+//			case fourth:
+//				p.piece = I_one;
+//				p.rotationPoint = new Point(2, 0);
+//				p.rotation = Rotation_time.third;
+//				break;
+//			default:
+//				break;
+//			}
+//		case J:
+//			switch (rotation) {
+//			case first:
+//				p.piece = J_four;
+//				p.rotationPoint = new Point(0, 1);
+//				p.rotation = Rotation_time.fourth;
+//				break;
+//			case secound:
+//				p.piece = J_one;
+//				p.rotationPoint = new Point(1, 1);
+//				p.rotation = Rotation_time.first;
+//				break;
+//			case third:
+//				p.piece = J_two;
+//				p.rotationPoint = new Point(1, 1);
+//				p.rotation = Rotation_time.secound;
+//				break;
+//			case fourth:
+//				p.piece = J_three;
+//				p.rotationPoint = new Point(1, 0);
+//				p.rotation = Rotation_time.third;
+//				break;
+//			default:
+//				break;
+//			}
+//		case L:
+//			switch (rotation) {
+//			case first:
+//				p.piece = L_four;
+//				p.rotationPoint = new Point(1, 1);
+//				p.rotation = Rotation_time.fourth;
+//				break;
+//			case secound:
+//				p.piece = L_one;
+//				p.rotationPoint = new Point(1, 0);
+//				p.rotation = Rotation_time.first;
+//				break;
+//			case third:
+//				p.piece = L_two;
+//				p.rotationPoint = new Point(0, 1);
+//				p.rotation = Rotation_time.secound;
+//				break;
+//			case fourth:
+//				p.piece = L_three;
+//				p.rotationPoint = new Point(1, 1);
+//				p.rotation = Rotation_time.third;
+//				break;
+//			default:
+//				break;
+//			}
+//
+//		case O:
+//			switch (rotation) {
+//			case first:
+//				p.piece = O_one;
+//				p.rotationPoint = new Point(0, 1);
+//				p.rotation = Rotation_time.fourth;
+//				break;
+//			case secound:
+//				p.piece = O_one;
+//				p.rotationPoint = new Point(1, 1);
+//				p.rotation = Rotation_time.first;
+//				break;
+//			case third:
+//				p.piece = O_one;
+//				p.rotationPoint = new Point(1, 0);
+//				p.rotation = Rotation_time.secound;
+//				break;
+//			case fourth:
+//				p.piece = O_one;
+//				p.rotationPoint = new Point(0, 0);
+//				p.rotation = Rotation_time.third;
+//				break;
+//			default:
+//				break;
+//			}
+//		case S:
+//			switch (rotation) {
+//			case first:
+//				p.piece = S_two;
+//				p.rotationPoint = new Point(1, 1);
+//				p.rotation = Rotation_time.fourth;
+//				break;
+//			case secound:
+//				p.piece = S_one;
+//				p.rotationPoint = new Point(1, 1);
+//				p.rotation = Rotation_time.first;
+//				break;
+//			case third:
+//				p.piece = S_two;
+//				p.rotationPoint = new Point(1, 0);
+//				p.rotation = Rotation_time.secound;
+//				break;
+//			case fourth:
+//				p.piece = S_one;
+//				p.rotationPoint = new Point(0, 1);
+//				p.rotation = Rotation_time.third;
+//				break;
+//			default:
+//				break;
+//			}
+//		case T:
+//			switch (rotation) {
+//			case first:
+//				p.piece = T_four;
+//				p.rotationPoint = new Point(1, 0);
+//				p.rotation = Rotation_time.fourth;
+//				break;
+//			case secound:
+//				p.piece = T_one;
+//				p.rotationPoint = new Point(0, 1);
+//				p.rotation = Rotation_time.first;
+//				break;
+//			case third:
+//				p.piece = T_tow;
+//				p.rotationPoint = new Point(1, 1);
+//				p.rotation = Rotation_time.secound;
+//				break;
+//			case fourth:
+//				p.piece = T_three;
+//				p.rotationPoint = new Point(1, 1);
+//				p.rotation = Rotation_time.third;
+//				break;
+//			default:
+//				break;
+//			}
+//		case Z:
+//			switch (rotation) {
+//			case first:
+//				p.piece = Z_two;
+//				p.rotationPoint = new Point(1, 1);
+//				p.rotation = Rotation_time.fourth;
+//				break;
+//			case secound:
+//				p.piece = Z_one;
+//				p.rotationPoint = new Point(1, 1);
+//				p.rotation = Rotation_time.first;
+//				break;
+//			case third:
+//				p.piece = Z_two;
+//				p.rotationPoint = new Point(1, 0);
+//				p.rotation = Rotation_time.secound;
+//				break;
+//			case fourth:
+//				p.piece = Z_one;
+//				p.rotationPoint = new Point(0, 1);
+//				p.rotation = Rotation_time.third;
+//				break;
+//			default:
+//				break;
+//			}
+//		}
+//		return this;
+		
+		if(this.rotation == Rotation_time.first) {
+			MyPiece p = new MyPiece(pieceType, Rotation_time.fourth);
+					return p;
+			}else if(this.rotation == Rotation_time.secound) {
+				MyPiece p = new MyPiece(pieceType, Rotation_time.first);
+				return p;
+			} else if(this.rotation == Rotation_time.third) {
+				MyPiece p = new MyPiece(pieceType, Rotation_time.secound);
+				return p;
+			} else { MyPiece p = new MyPiece(pieceType, Rotation_time.third);
+			return p;
 			}
-		case J:
-			switch (rotation) {
-			case first:
-				p.piece = J_four;
-				p.rotationPoint = new Point(0, 1);
-				p.rotation = Rotation_time.fourth;
-				break;
-			case secound:
-				p.piece = J_one;
-				p.rotationPoint = new Point(1, 1);
-				p.rotation = Rotation_time.first;
-				break;
-			case third:
-				p.piece = J_two;
-				p.rotationPoint = new Point(1, 1);
-				p.rotation = Rotation_time.secound;
-				break;
-			case fourth:
-				p.piece = J_three;
-				p.rotationPoint = new Point(1, 0);
-				p.rotation = Rotation_time.third;
-				break;
-			default:
-				break;
-			}
-		case L:
-			switch (rotation) {
-			case first:
-				p.piece = L_four;
-				p.rotationPoint = new Point(1, 1);
-				p.rotation = Rotation_time.fourth;
-				break;
-			case secound:
-				p.piece = L_one;
-				p.rotationPoint = new Point(1, 0);
-				p.rotation = Rotation_time.first;
-				break;
-			case third:
-				p.piece = L_two;
-				p.rotationPoint = new Point(0, 1);
-				p.rotation = Rotation_time.secound;
-				break;
-			case fourth:
-				p.piece = L_three;
-				p.rotationPoint = new Point(1, 1);
-				p.rotation = Rotation_time.third;
-				break;
-			default:
-				break;
-			}
-
-		case O:
-			switch (rotation) {
-			case first:
-				p.piece = O_one;
-				p.rotationPoint = new Point(0, 1);
-				p.rotation = Rotation_time.fourth;
-				break;
-			case secound:
-				p.piece = O_one;
-				p.rotationPoint = new Point(1, 1);
-				p.rotation = Rotation_time.first;
-				break;
-			case third:
-				p.piece = O_one;
-				p.rotationPoint = new Point(1, 0);
-				p.rotation = Rotation_time.secound;
-				break;
-			case fourth:
-				p.piece = O_one;
-				p.rotationPoint = new Point(0, 0);
-				p.rotation = Rotation_time.third;
-				break;
-			default:
-				break;
-			}
-		case S:
-			switch (rotation) {
-			case first:
-				p.piece = S_two;
-				p.rotationPoint = new Point(1, 1);
-				p.rotation = Rotation_time.fourth;
-				break;
-			case secound:
-				p.piece = S_one;
-				p.rotationPoint = new Point(1, 1);
-				p.rotation = Rotation_time.first;
-				break;
-			case third:
-				p.piece = S_two;
-				p.rotationPoint = new Point(1, 0);
-				p.rotation = Rotation_time.secound;
-				break;
-			case fourth:
-				p.piece = S_one;
-				p.rotationPoint = new Point(0, 1);
-				p.rotation = Rotation_time.third;
-				break;
-			default:
-				break;
-			}
-		case T:
-			switch (rotation) {
-			case first:
-				p.piece = T_four;
-				p.rotationPoint = new Point(1, 0);
-				p.rotation = Rotation_time.fourth;
-				break;
-			case secound:
-				p.piece = T_one;
-				p.rotationPoint = new Point(0, 1);
-				p.rotation = Rotation_time.first;
-				break;
-			case third:
-				p.piece = T_tow;
-				p.rotationPoint = new Point(1, 1);
-				p.rotation = Rotation_time.secound;
-				break;
-			case fourth:
-				p.piece = T_three;
-				p.rotationPoint = new Point(1, 1);
-				p.rotation = Rotation_time.third;
-				break;
-			default:
-				break;
-			}
-		case Z:
-			switch (rotation) {
-			case first:
-				p.piece = Z_two;
-				p.rotationPoint = new Point(1, 1);
-				p.rotation = Rotation_time.fourth;
-				break;
-			case secound:
-				p.piece = Z_one;
-				p.rotationPoint = new Point(1, 1);
-				p.rotation = Rotation_time.first;
-				break;
-			case third:
-				p.piece = Z_two;
-				p.rotationPoint = new Point(1, 0);
-				p.rotation = Rotation_time.secound;
-				break;
-			case fourth:
-				p.piece = Z_one;
-				p.rotationPoint = new Point(0, 1);
-				p.rotation = Rotation_time.third;
-				break;
-			default:
-				break;
-			}
-		}
-		return this;
-	
+			
+		
 	}
 
 	@Override

@@ -12,7 +12,6 @@ public class MyPieceFactory implements PieceFactory {
 		// TODO Auto-generated constructor stub
 		super();
 		this.random = r;
-		
 	}
 
 	@Override

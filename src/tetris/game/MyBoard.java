@@ -41,7 +41,7 @@ public class MyBoard implements Board {
 		if (canAddPiece(piece, row, column)) {
 			PieceType pt = piece.getPieceType();
 
-			int x = piece.getRotationPoint().getRow();   // it was Rotation_Point.getRow()/.getColumn()
+			int x = piece.getRotationPoint().getRow(); // it was Rotation_Point.getRow()/.getColumn()
 			int y = piece.getRotationPoint().getColumn();
 			int x0 = 0;
 			int y0 = 0;
@@ -73,7 +73,7 @@ public class MyBoard implements Board {
 		if (piece == null) {
 			throw new IllegalArgumentException();
 		}
-		int x = piece.getRotationPoint().getRow();   // it was Rotation_Point.getRow()/.getColumn()
+		int x = piece.getRotationPoint().getRow(); // it was Rotation_Point.getRow()/.getColumn()
 		int y = piece.getRotationPoint().getColumn();
 		int x0 = 0;
 		int y0 = 0;
@@ -107,7 +107,7 @@ public class MyBoard implements Board {
 		if (row >= getNumberOfRows() || column >= getNumberOfColumns()) {
 			throw new IllegalArgumentException("Row or column out of bounds");
 		}
-		int x = piece.getRotationPoint().getRow();   // it was Rotation_Point.getRow()/.getColumn()
+		int x = piece.getRotationPoint().getRow(); // it was Rotation_Point.getRow()/.getColumn()
 		int y = piece.getRotationPoint().getColumn();
 		int x0 = 0;
 		int y0 = 0;
@@ -137,7 +137,7 @@ public class MyBoard implements Board {
 			throw new IllegalArgumentException("Row or column out of bounds");
 		}
 
-		int x = piece.getRotationPoint().getRow();   // it was Rotation_Point.getRow()/.getColumn()
+		int x = piece.getRotationPoint().getRow(); // it was Rotation_Point.getRow()/.getColumn()
 		int y = piece.getRotationPoint().getColumn();
 		int x0 = 0;
 		int y0 = 0;
@@ -164,6 +164,7 @@ public class MyBoard implements Board {
 				}
 			}
 
+			
 		}
 		return logik;
 

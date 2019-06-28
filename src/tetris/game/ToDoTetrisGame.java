@@ -2,6 +2,7 @@ package tetris.game;
 
 import java.util.Random;
 
+import tetris.game.pieces.MyPieceFactory;
 //import sun.security.mscapi.KeyStore.MY;
 //import sun.security.provider.ConfigFile.Spi;
 //import tetris.game.pieces.MyPiece;
@@ -14,7 +15,18 @@ public class ToDoTetrisGame implements TetrisGame {
 	private Piece stein;
 	private Piece nextStein;
 	private PieceType pt;
+	private Random random;
 	
+	public void SetBoard(Board b ) {
+		this.SpielPlatz = b;
+	} 
+	
+	
+	
+	public ToDoTetrisGame(Random r) {
+		super();
+		this.random = r;
+	}
 	
 	
 	@Override
@@ -44,9 +56,7 @@ public class ToDoTetrisGame implements TetrisGame {
 
 	@Override
 	public Piece getNextPiece() {
-		
-//		nextStein = new MyPieceFactory().getNextRandomPiece();
-
+		nextStein = new MyPieceFactory(random).getNextRandomPiece();
 		return nextStein;
 	}
 
