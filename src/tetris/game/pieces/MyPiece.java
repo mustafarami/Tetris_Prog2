@@ -61,6 +61,7 @@ public class MyPiece implements Piece {
 			default:
 				break;
 			}
+			break;
 		case J:
 			switch (rotation) {
 			case first:
@@ -86,6 +87,7 @@ public class MyPiece implements Piece {
 			default:
 				break;
 			}
+			break;
 		case L:
 			switch (rotation) {
 			case first:
@@ -111,7 +113,7 @@ public class MyPiece implements Piece {
 			default:
 				break;
 			}
-
+			break;
 		case O:
 			switch (rotation) {
 			case first:
@@ -137,6 +139,7 @@ public class MyPiece implements Piece {
 			default:
 				break;
 			}
+			break;
 		case S:
 			switch (rotation) {
 			case first:
@@ -162,6 +165,7 @@ public class MyPiece implements Piece {
 			default:
 				break;
 			}
+			break;
 		case T:
 			switch (rotation) {
 			case first:
@@ -187,6 +191,7 @@ public class MyPiece implements Piece {
 			default:
 				break;
 			}
+			break;
 		case Z:
 			switch (rotation) {
 			case first:

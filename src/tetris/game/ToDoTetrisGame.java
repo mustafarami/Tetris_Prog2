@@ -16,19 +16,16 @@ public class ToDoTetrisGame implements TetrisGame {
 	private Piece nextStein;
 	private PieceType pt;
 	private Random random;
-	
-	public void SetBoard(Board b ) {
+
+	public void SetBoard(Board b) {
 		this.SpielPlatz = b;
-	} 
-	
-	
-	
+	}
+
 	public ToDoTetrisGame(Random r) {
 		super();
 		this.random = r;
 	}
-	
-	
+
 	@Override
 	public void addObserver(GameObserver observer) {
 		// TODO Auto-generated method stub
@@ -43,7 +40,7 @@ public class ToDoTetrisGame implements TetrisGame {
 
 	@Override
 	public Piece getCurrentPiece() { // false
-		
+
 //		stein = new MyPiece(pt, rot)
 		return stein;
 	}
