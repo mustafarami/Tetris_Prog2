@@ -51,8 +51,8 @@ public class MyBoard implements Board {
 			for (int i = 0; i < Body.length; i++) {
 
 				for (int j = 0; j < Body[0].length; j++) {
-					x0 = x - i;
-					y0 = y - j;
+					x0 = i - x;
+					y0 = j - y;
 					if (Body[i][j]) {
 						board[x0 + row][y0 + column] = pt;
 					}
@@ -83,11 +83,11 @@ public class MyBoard implements Board {
 		for (int i = 0; i < Body.length; i++) {
 			for (int j = 0; j < Body[0].length; j++) {
 				if (Body[i][j]) {
-					x0 =  x - i;
-					y0 =  y - j;
-					if(x0 + row < 0 || x0 + row >= Body.length || y0 + column < 0 || y0 + column >= Body[0].length) {
+					x0 = i - x;
+					y0 = j - y;
+					if (x0 + row < 0 || x0 + row >= Body.length || y0 + column < 0 || y0 + column >= Body[0].length) {
 						return false;
-					}  // added new
+					} // added new
 					if (board[x0 + row][y0 + column] == null) {
 						logik = true;
 					} else {
@@ -117,8 +117,8 @@ public class MyBoard implements Board {
 			for (int i = 0; i < Body.length; i++) {
 				for (int j = 0; j < Body[0].length; j++) {
 					if (Body[i][j]) {
-						x0 = x - i;
-						y0 = y - j;
+						x0 = i - x;
+						y0 = j - y;
 						board[x0 + row][y0 + column] = null;
 					}
 
@@ -148,13 +148,13 @@ public class MyBoard implements Board {
 		for (int i = 0; i < Body.length; i++) {
 			for (int j = 0; j < Body[0].length; j++) {
 				if (Body[i][j]) {
-					x0 = x - i;
-					y0 = y - j;
-					
-					if(x0 + row < 0 || x0 + row >= Body.length || y0 + column < 0 || y0 + column >= Body[0].length) {
+					x0 = i - x;
+					y0 = j - y;
+
+					if (x0 + row < 0 || x0 + row >= Body.length || y0 + column < 0 || y0 + column >= Body[0].length) {
 						return false;
-					}  // added new
-					
+					} // added new
+
 					if (pt.equals(board[x0 + row][y0 + column])) {
 						logik = true;
 					} else {
@@ -178,8 +178,6 @@ public class MyBoard implements Board {
 
 		for (int r = 0; r < getNumberOfRows(); r++) {
 
-			
-
 			for (int i = 0; i < getNumberOfColumns(); i++) { // check if a row is completed
 
 				if (board[last_row][i] != null) {
@@ -197,7 +195,7 @@ public class MyBoard implements Board {
 					board[last_row][i] = null;
 
 				}
-				
+
 				if (last_row == 0) {
 					break;
 				}
