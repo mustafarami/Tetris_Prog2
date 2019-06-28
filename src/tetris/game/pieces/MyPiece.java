@@ -38,7 +38,7 @@ public class MyPiece implements Piece {
 			switch (rotation) {
 			case first:
 				this.piece = I_one;
-				this.rotationPoint = new Point(0, 2);
+				this.rotationPoint = new Point(1, 0);
 				this.rotation = Rotation_time.first;
 				break;
 			case secound:
