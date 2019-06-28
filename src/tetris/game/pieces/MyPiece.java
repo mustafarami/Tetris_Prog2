@@ -38,24 +38,24 @@ public class MyPiece implements Piece {
 			switch (rotation) {
 			case first:
 				this.piece = I_one;
-				this.rotationPoint = new Point(1, 02);
+				this.rotationPoint = new Point(0, 2);
 				this.rotation = Rotation_time.first;
 				break;
 			case secound:
 				this.piece = I_two;
+				this.rotationPoint = new Point(0, 2);
+				this.rotation = Rotation_time.secound;
+				break;
+			case third:
+				this.piece = I_one;
 				this.rotationPoint = new Point(2, 0);
 				this.rotation = Rotation_time.third;
 				break;
-			case third:
+			case fourth:
 				this.piece = I_two;
 				this.rotationPoint = new Point(0, 1);
-				this.rotation = Rotation_time.fourth;
-				break;
-			case fourth:
-				this.piece = I_one;
-				this.rotationPoint = new Point(0, 2);
 
-				this.rotation = Rotation_time.first;
+				this.rotation = Rotation_time.fourth;
 
 				break;
 			default:
@@ -64,24 +64,24 @@ public class MyPiece implements Piece {
 		case J:
 			switch (rotation) {
 			case first:
+				this.piece = J_one;
+				this.rotationPoint = new Point(1, 1);
+				this.rotation = Rotation_time.first;
+				break;
+			case secound:
 				this.piece = J_two;
 				this.rotationPoint = new Point(1, 1);
 				this.rotation = Rotation_time.secound;
 				break;
-			case secound:
+			case third:
 				this.piece = J_three;
 				this.rotationPoint = new Point(1, 0);
 				this.rotation = Rotation_time.third;
 				break;
-			case third:
+			case fourth:
 				this.piece = J_four;
 				this.rotationPoint = new Point(0, 1);
 				this.rotation = Rotation_time.fourth;
-				break;
-			case fourth:
-				this.piece = J_one;
-				this.rotationPoint = new Point(1, 1);
-				this.rotation = Rotation_time.first;
 				break;
 			default:
 				break;
@@ -89,24 +89,24 @@ public class MyPiece implements Piece {
 		case L:
 			switch (rotation) {
 			case first:
+				this.piece = L_one;
+				this.rotationPoint = new Point(1, 0);
+				this.rotation = Rotation_time.first;
+				break;
+			case secound:
 				this.piece = L_two;
 				this.rotationPoint = new Point(0, 1);
 				this.rotation = Rotation_time.secound;
 				break;
-			case secound:
+			case third:
 				this.piece = L_three;
 				this.rotationPoint = new Point(1, 1);
 				this.rotation = Rotation_time.third;
 				break;
-			case third:
+			case fourth:
 				this.piece = L_four;
 				this.rotationPoint = new Point(1, 1);
 				this.rotation = Rotation_time.fourth;
-				break;
-			case fourth:
-				this.piece = L_one;
-				this.rotationPoint = new Point(1, 0);
-				this.rotation = Rotation_time.first;
 				break;
 			default:
 				break;
@@ -116,22 +116,22 @@ public class MyPiece implements Piece {
 			switch (rotation) {
 			case first:
 				this.piece = O_one;
+				this.rotationPoint = new Point(1, 1);
+				this.rotation = Rotation_time.first;
+				break;
+			case secound:
+				this.piece = O_one;
 				this.rotationPoint = new Point(1, 0);
 				this.rotation = Rotation_time.secound;
 				break;
-			case secound:
+			case third:
 				this.piece = O_one;
 				this.rotationPoint = new Point(0, 0);
 				this.rotation = Rotation_time.third;
 				break;
-			case third:
-				this.piece = O_one;
-				this.rotationPoint = new Point(0, 1);
-				this.rotation = Rotation_time.fourth;
-				break;
 			case fourth:
 				this.piece = O_one;
-				this.rotationPoint = new Point(1, 1);
+				this.rotationPoint = new Point(0, 1);
 				this.rotation = Rotation_time.first;
 				break;
 			default:
@@ -140,24 +140,24 @@ public class MyPiece implements Piece {
 		case S:
 			switch (rotation) {
 			case first:
+				this.piece = S_one;
+				this.rotationPoint = new Point(1, 1);
+				this.rotation = Rotation_time.first;
+				break;
+			case secound:
 				this.piece = S_two;
 				this.rotationPoint = new Point(1, 0);
 				this.rotation = Rotation_time.secound;
 				break;
-			case secound:
+			case third:
 				this.piece = S_one;
 				this.rotationPoint = new Point(0, 1);
 				this.rotation = Rotation_time.third;
 				break;
-			case third:
+			case fourth:
 				this.piece = S_two;
 				this.rotationPoint = new Point(1, 1);
 				this.rotation = Rotation_time.fourth;
-				break;
-			case fourth:
-				this.piece = S_one;
-				this.rotationPoint = new Point(1, 1);
-				this.rotation = Rotation_time.first;
 				break;
 			default:
 				break;
@@ -165,24 +165,24 @@ public class MyPiece implements Piece {
 		case T:
 			switch (rotation) {
 			case first:
+				this.piece = T_one;
+				this.rotationPoint = new Point(0, 1);
+				this.rotation = Rotation_time.first;
+				break;
+			case secound:
 				this.piece = T_tow;
 				this.rotationPoint = new Point(1, 1);
 				this.rotation = Rotation_time.secound;
 				break;
-			case secound:
+			case third:
 				this.piece = T_three;
 				this.rotationPoint = new Point(1, 1);
 				this.rotation = Rotation_time.third;
 				break;
-			case third:
-				this.piece = T_four;
-				this.rotationPoint = new Point(0, 1);
-				this.rotation = Rotation_time.fourth;
-				break;
 			case fourth:
-				this.piece = T_one;
+				this.piece = T_four;
 				this.rotationPoint = new Point(1, 0);
-				this.rotation = Rotation_time.first;
+				this.rotation = Rotation_time.fourth;
 				break;
 			default:
 				break;
@@ -190,24 +190,24 @@ public class MyPiece implements Piece {
 		case Z:
 			switch (rotation) {
 			case first:
+				this.piece = Z_one;
+				this.rotationPoint = new Point(1, 1);
+				this.rotation = Rotation_time.first;
+				break;
+			case secound:
 				this.piece = Z_two;
 				this.rotationPoint = new Point(1, 0);
 				this.rotation = Rotation_time.secound;
 				break;
-			case secound:
+			case third:
 				this.piece = Z_one;
 				this.rotationPoint = new Point(0, 1);
 				this.rotation = Rotation_time.third;
 				break;
-			case third:
+			case fourth:
 				this.piece = Z_two;
 				this.rotationPoint = new Point(1, 1);
 				this.rotation = Rotation_time.fourth;
-				break;
-			case fourth:
-				this.piece = Z_one;
-				this.rotationPoint = new Point(1, 1);
-				this.rotation = Rotation_time.first;
 				break;
 			default:
 				break;
@@ -235,19 +235,20 @@ public class MyPiece implements Piece {
 
 	@Override
 	public Piece getClockwiseRotation() {
-		if(this.rotation == Rotation_time.first) {
-		MyPiece p = new MyPiece(pieceType, Rotation_time.secound);
-				return p;
-		}else if(this.rotation == Rotation_time.secound) {
+		if (this.rotation == Rotation_time.first) {
+			MyPiece p = new MyPiece(pieceType, Rotation_time.secound);
+			return p;
+		} else if (this.rotation == Rotation_time.secound) {
 			MyPiece p = new MyPiece(pieceType, Rotation_time.third);
 			return p;
-		} else if(this.rotation == Rotation_time.third) {
+		} else if (this.rotation == Rotation_time.third) {
 			MyPiece p = new MyPiece(pieceType, Rotation_time.fourth);
 			return p;
-		} else { MyPiece p = new MyPiece(pieceType, Rotation_time.first);
-		return p;
+		} else {
+			MyPiece p = new MyPiece(pieceType, Rotation_time.first);
+			return p;
 		}
-		
+
 	}
 
 	@Override
@@ -432,21 +433,21 @@ public class MyPiece implements Piece {
 //			}
 //		}
 //		return this;
-		
-		if(this.rotation == Rotation_time.first) {
+
+		if (this.rotation == Rotation_time.first) {
 			MyPiece p = new MyPiece(pieceType, Rotation_time.fourth);
-					return p;
-			}else if(this.rotation == Rotation_time.secound) {
-				MyPiece p = new MyPiece(pieceType, Rotation_time.first);
-				return p;
-			} else if(this.rotation == Rotation_time.third) {
-				MyPiece p = new MyPiece(pieceType, Rotation_time.secound);
-				return p;
-			} else { MyPiece p = new MyPiece(pieceType, Rotation_time.third);
 			return p;
-			}
-			
-		
+		} else if (this.rotation == Rotation_time.secound) {
+			MyPiece p = new MyPiece(pieceType, Rotation_time.first);
+			return p;
+		} else if (this.rotation == Rotation_time.third) {
+			MyPiece p = new MyPiece(pieceType, Rotation_time.secound);
+			return p;
+		} else {
+			MyPiece p = new MyPiece(pieceType, Rotation_time.third);
+			return p;
+		}
+
 	}
 
 	@Override
