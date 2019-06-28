@@ -14,7 +14,7 @@ public class MyBoard implements Board {
 	private int width = MyTetrisFactory.DEFAULT_COLUMNS;
 	private PieceType[][] board;
 	private boolean[][] Body;
-	private Point Rotation_Point;
+//	private Point Rotation_Point;
 
 	public MyBoard(int h, int w) {
 
@@ -41,8 +41,8 @@ public class MyBoard implements Board {
 		if (canAddPiece(piece, row, column)) {
 			PieceType pt = piece.getPieceType();
 
-			int x = Rotation_Point.getRow();
-			int y = Rotation_Point.getColumn();
+			int x = piece.getRotationPoint().getRow();   // it was Rotation_Point.getRow()/.getColumn()
+			int y = piece.getRotationPoint().getColumn();
 			int x0 = 0;
 			int y0 = 0;
 			// Hier muss es unbedinget gecheckt werden
@@ -73,8 +73,8 @@ public class MyBoard implements Board {
 		if (piece == null) {
 			throw new IllegalArgumentException();
 		}
-		int x = Rotation_Point.getRow();
-		int y = Rotation_Point.getColumn();
+		int x = piece.getRotationPoint().getRow();   // it was Rotation_Point.getRow()/.getColumn()
+		int y = piece.getRotationPoint().getColumn();
 		int x0 = 0;
 		int y0 = 0;
 		boolean logik = false;
@@ -107,8 +107,8 @@ public class MyBoard implements Board {
 		if (row >= getNumberOfRows() || column >= getNumberOfColumns()) {
 			throw new IllegalArgumentException("Row or column out of bounds");
 		}
-		int x = Rotation_Point.getRow();
-		int y = Rotation_Point.getColumn();
+		int x = piece.getRotationPoint().getRow();   // it was Rotation_Point.getRow()/.getColumn()
+		int y = piece.getRotationPoint().getColumn();
 		int x0 = 0;
 		int y0 = 0;
 		Body = piece.getBody();
@@ -137,8 +137,8 @@ public class MyBoard implements Board {
 			throw new IllegalArgumentException("Row or column out of bounds");
 		}
 
-		int x = Rotation_Point.getRow();
-		int y = Rotation_Point.getColumn();
+		int x = piece.getRotationPoint().getRow();   // it was Rotation_Point.getRow()/.getColumn()
+		int y = piece.getRotationPoint().getColumn();
 		int x0 = 0;
 		int y0 = 0;
 		boolean logik = false;
