@@ -1,5 +1,7 @@
 package tetris.game.pieces;
 
+//import static org.junit.Assert.assertNotNull;
+
 public class MyPiece implements Piece {
 
 	private boolean[][] piece;
@@ -242,10 +244,10 @@ public class MyPiece implements Piece {
 		} else if (this.rotation == Rotation_time.third) {
 			MyPiece p = new MyPiece(pieceType, Rotation_time.fourth);
 			return p;
-		} else {
+		} else if (this.rotation == Rotation_time.fourth){
 			MyPiece p = new MyPiece(pieceType, Rotation_time.first);
 			return p;
-		}
+		} else {return null;}
 
 	}
 
@@ -441,9 +443,11 @@ public class MyPiece implements Piece {
 		} else if (this.rotation == Rotation_time.third) {
 			MyPiece p = new MyPiece(pieceType, Rotation_time.secound);
 			return p;
-		} else {
+		} else if (this.rotation == Rotation_time.fourth){
 			MyPiece p = new MyPiece(pieceType, Rotation_time.third);
 			return p;
+		} else {
+			return null;
 		}
 
 	}
