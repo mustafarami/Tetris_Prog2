@@ -112,13 +112,15 @@ public class MyBoard implements Board {
 //		if (row >= getNumberOfRows() || column >= getNumberOfColumns()) {
 //			throw new IllegalArgumentException();
 //		}
-		int x = piece.getRotationPoint().getRow(); // it was Rotation_Point.getRow()/.getColumn()
-		int y = piece.getRotationPoint().getColumn();
-		int x0 = 0;
-		int y0 = 0;
-		Body = piece.getBody();
 
-		if (piece != null && canRemovePiece(piece, row, column)) {
+		if (canRemovePiece(piece, row, column)) {
+
+			int x = piece.getRotationPoint().getRow(); // it was Rotation_Point.getRow()/.getColumn()
+			int y = piece.getRotationPoint().getColumn();
+			int x0 = 0;
+			int y0 = 0;
+			Body = piece.getBody();
+
 			for (int i = 0; i < Body.length; i++) {
 				for (int j = 0; j < Body[0].length; j++) {
 					if (Body[i][j]) {
@@ -129,10 +131,11 @@ public class MyBoard implements Board {
 
 				}
 			}
+
 		} else {
 			throw new IllegalArgumentException();
-
 		}
+
 	}
 
 	@Override
