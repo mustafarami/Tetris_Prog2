@@ -71,10 +71,12 @@ public class MyBoard implements Board {
 	@Override
 	public boolean canAddPiece(Piece piece, int row, int column) {
 		if (row >= getNumberOfRows() || column >= getNumberOfColumns()) {
-			throw new IllegalArgumentException();
+//			throw new IllegalArgumentException();
+			return false;
 		}
 		if (piece == null) {
-			throw new IllegalArgumentException();
+//			throw new IllegalArgumentException();
+			return false;
 		}
 		int x = piece.getRotationPoint().getRow(); // it was Rotation_Point.getRow()/.getColumn()
 		int y = piece.getRotationPoint().getColumn();
@@ -107,9 +109,9 @@ public class MyBoard implements Board {
 	@Override
 	public void removePiece(Piece piece, int row, int column) {
 
-		if (row >= getNumberOfRows() || column >= getNumberOfColumns()) {
-			throw new IllegalArgumentException();
-		}
+//		if (row >= getNumberOfRows() || column >= getNumberOfColumns()) {
+//			throw new IllegalArgumentException();
+//		}
 		int x = piece.getRotationPoint().getRow(); // it was Rotation_Point.getRow()/.getColumn()
 		int y = piece.getRotationPoint().getColumn();
 		int x0 = 0;
@@ -136,9 +138,9 @@ public class MyBoard implements Board {
 	@Override
 	public boolean canRemovePiece(Piece piece, int row, int column) {
 
-		if (row >= getNumberOfRows() || column >= getNumberOfColumns()) {
-			throw new IllegalArgumentException();
-		}
+//		if (row >= getNumberOfRows() || column >= getNumberOfColumns()) {
+//			throw new IllegalArgumentException();
+//		}
 
 		int x = piece.getRotationPoint().getRow(); // it was Rotation_Point.getRow()/.getColumn()
 		int y = piece.getRotationPoint().getColumn();
