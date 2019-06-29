@@ -240,40 +240,84 @@ public class MyPiece implements Piece {
 
 	@Override
 	public Piece getClockwiseRotation() {
-		if (this.rotation == Rotation_time.first) {
-			MyPiece p = new MyPiece(pieceType, Rotation_time.secound);
-			return p;
-		} else if (this.rotation == Rotation_time.secound) {
-			MyPiece p = new MyPiece(pieceType, Rotation_time.third);
-			return p;
-		} else if (this.rotation == Rotation_time.third) {
-			MyPiece p = new MyPiece(pieceType, Rotation_time.fourth);
-			return p;
-		} else if (this.rotation == Rotation_time.fourth){
-			MyPiece p = new MyPiece(pieceType, Rotation_time.first);
-			return p;
-		} else {return null;}
-
+//		if (this.rotation == Rotation_time.first) {
+//			MyPiece p = new MyPiece(pieceType, Rotation_time.secound);
+//			return p;
+//		} else if (this.rotation == Rotation_time.secound) {
+//			MyPiece p = new MyPiece(pieceType, Rotation_time.third);
+//			return p;
+//		} else if (this.rotation == Rotation_time.third) {
+//			MyPiece p = new MyPiece(pieceType, Rotation_time.fourth);
+//			return p;
+//		} else if (this.rotation == Rotation_time.fourth){
+//			MyPiece p = new MyPiece(pieceType, Rotation_time.first);
+//			return p;
+//		} else {return null;}
+		
+		MyPiece pi = null;
+		switch (this.rotation) {
+		case first:
+			pi = new MyPiece(pieceType, Rotation_time.secound);
+			break;
+		case secound:
+			pi = new MyPiece(pieceType, Rotation_time.third);
+			break;
+		case third:
+			pi = new MyPiece(pieceType, Rotation_time.fourth);
+			break;
+		case fourth:
+			pi = new MyPiece(pieceType, Rotation_time.first);
+			break;
+		default:
+			break;
+		}
+		return pi;
+		
+		
 	}
 
 	@Override
 	public Piece getCounterClockwiseRotation() {
-
-		if (this.rotation == Rotation_time.first) {
-			MyPiece p = new MyPiece(pieceType, Rotation_time.fourth);
-			return p;
-		} else if (this.rotation == Rotation_time.secound) {
-			MyPiece p = new MyPiece(pieceType, Rotation_time.first);
-			return p;
-		} else if (this.rotation == Rotation_time.third) {
-			MyPiece p = new MyPiece(pieceType, Rotation_time.secound);
-			return p;
-		} else if (this.rotation == Rotation_time.fourth){
-			MyPiece p = new MyPiece(pieceType, Rotation_time.third);
-			return p;
-		} else {
-			return null;
+		
+		MyPiece pi = null;
+		switch (this.rotation) {
+		case first:
+			pi = new MyPiece(pieceType, Rotation_time.fourth);
+			break;
+		case secound:
+			pi = new MyPiece(pieceType, Rotation_time.first);
+			break;
+		case third:
+			pi = new MyPiece(pieceType, Rotation_time.secound);
+			break;
+		case fourth:
+			pi = new MyPiece(pieceType, Rotation_time.third);
+			break;
+		default:
+			break;
 		}
+		return pi;
+		
+		
+		
+		
+		
+		
+//		if (this.rotation == Rotation_time.first) {
+//			MyPiece p = new MyPiece(pieceType, Rotation_time.fourth);
+//			return p;
+//		} else if (this.rotation == Rotation_time.secound) {
+//			MyPiece p = new MyPiece(pieceType, Rotation_time.first);
+//			return p;
+//		} else if (this.rotation == Rotation_time.third) {
+//			MyPiece p = new MyPiece(pieceType, Rotation_time.secound);
+//			return p;
+//		} else if (this.rotation == Rotation_time.fourth){
+//			MyPiece p = new MyPiece(pieceType, Rotation_time.third);
+//			return p;
+//		} else {
+//			return null;
+//		}
 
 	}
 
