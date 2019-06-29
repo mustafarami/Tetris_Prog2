@@ -46,7 +46,7 @@ public class ToDoTetrisGame implements TetrisGame {
 	}
 
 	@Override
-	public Board getBoard() {
+	public Board getBoard() { 
 		SpielPlatz = new MyBoard(MyTetrisFactory.DEFAULT_COLUMNS, MyTetrisFactory.DEFAULT_ROWS);
 		return SpielPlatz;
 	}
@@ -83,37 +83,35 @@ public class ToDoTetrisGame implements TetrisGame {
 
 	@Override
 	public boolean isGameOver() {
-		// TODO Auto-generated method stub
+
 		return false;
 	}
 
 	@Override
 	public boolean moveDown() {
-		// TODO Auto-generated method stub
-		return false;
+		return SpielPlatz.canAddPiece(getCurrentPiece(), getPieceRow() + 1, getPieceColumn());
 	}
 
 	@Override
 	public boolean moveLeft() {
-		// TODO Auto-generated method stub
-		return false;
+
+		return SpielPlatz.canAddPiece(getCurrentPiece(), getPieceRow(), getPieceColumn() - 1);
 	}
 
 	@Override
 	public boolean moveRight() {
-		// TODO Auto-generated method stub
-		return false;
+
+		return SpielPlatz.canAddPiece(getCurrentPiece(), getPieceRow(), getPieceColumn() + 1);
 	}
 
 	@Override
 	public boolean newPiece() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public boolean rotatePieceClockwise() {
-		// TODO Auto-generated method stub
+
 		return false;
 	}
 

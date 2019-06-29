@@ -253,7 +253,7 @@ public class MyPiece implements Piece {
 //			MyPiece p = new MyPiece(pieceType, Rotation_time.first);
 //			return p;
 //		} else {return null;}
-		
+
 		MyPiece pi = null;
 		switch (this.rotation) {
 		case first:
@@ -272,13 +272,12 @@ public class MyPiece implements Piece {
 			break;
 		}
 		return pi;
-		
-		
+
 	}
 
 	@Override
 	public Piece getCounterClockwiseRotation() {
-		
+
 		MyPiece pi = null;
 		switch (this.rotation) {
 		case first:
@@ -297,12 +296,7 @@ public class MyPiece implements Piece {
 			break;
 		}
 		return pi;
-		
-		
-		
-		
-		
-		
+
 //		if (this.rotation == Rotation_time.first) {
 //			MyPiece p = new MyPiece(pieceType, Rotation_time.fourth);
 //			return p;

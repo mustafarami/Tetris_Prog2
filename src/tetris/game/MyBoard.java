@@ -10,13 +10,10 @@ import tetris.game.pieces.Piece.PieceType;
 import tetris.game.pieces.Point;
 
 public class MyBoard implements Board {
-//	private int height = MyTetrisFactory.DEFAULT_ROWS; // ?
-//	private int width = MyTetrisFactory.DEFAULT_COLUMNS;
 	private int height = 0;
 	private int width = 0;
 	private PieceType[][] board;
 	private boolean[][] Body;
-//	private Point Rotation_Point;
 
 	public MyBoard(int h, int w) {
 		this.height = h;
@@ -71,11 +68,9 @@ public class MyBoard implements Board {
 	@Override
 	public boolean canAddPiece(Piece piece, int row, int column) {
 		if (row >= getNumberOfRows() || column >= getNumberOfColumns()) {
-//			throw new IllegalArgumentException();
 			return false;
 		}
 		if (piece == null) {
-//			throw new IllegalArgumentException();
 			return false;
 		}
 		int x = piece.getRotationPoint().getRow(); // it was Rotation_Point.getRow()/.getColumn()
@@ -109,10 +104,6 @@ public class MyBoard implements Board {
 	@Override
 	public void removePiece(Piece piece, int row, int column) {
 
-//		if (row >= getNumberOfRows() || column >= getNumberOfColumns()) {
-//			throw new IllegalArgumentException();
-//		}
-
 		if (canRemovePiece(piece, row, column)) {
 
 			int x = piece.getRotationPoint().getRow(); // it was Rotation_Point.getRow()/.getColumn()
@@ -128,7 +119,6 @@ public class MyBoard implements Board {
 						y0 = j - y;
 						board[x0 + row][y0 + column] = null;
 					}
-
 				}
 			}
 
@@ -140,10 +130,6 @@ public class MyBoard implements Board {
 
 	@Override
 	public boolean canRemovePiece(Piece piece, int row, int column) {
-
-//		if (row >= getNumberOfRows() || column >= getNumberOfColumns()) {
-//			throw new IllegalArgumentException();
-//		}
 
 		int x = piece.getRotationPoint().getRow(); // it was Rotation_Point.getRow()/.getColumn()
 		int y = piece.getRotationPoint().getColumn();
@@ -178,54 +164,53 @@ public class MyBoard implements Board {
 	}
 
 	@Override
-	public int deleteCompleteRows() { // don't forget the mistake you've thought about it, before you file in sleep,
+	public int deleteCompleteRows() { // don't forget the mistake you've thought about it, before you sleep.
 
-		int last_row = getNumberOfRows() - 1;
+		int rows = getNumberOfRows() - 1;
+		int last_row = 4;
 		int ret = 0;
 		boolean geht = true;
 
 		for (int r = 0; r < getNumberOfRows(); r++) {
 
 			for (int i = 0; i < getNumberOfColumns(); i++) { // check if a row is completed
-
-				if (board[last_row][i] != null) {
+				if (board[rows][i] != null) {
 					geht &= true;
 				} else {
 					geht = false;
 				}
-
 			}
 
-			if (geht) { // delete an complete Row
-
+			if (geht) { // delete an completed Row
 				for (int i = 0; i < getNumberOfColumns(); i++) {
-
-					board[last_row][i] = null;
-
+					board[rows][i] = null;
 				}
-
 				if (last_row == 0) {
 					break;
 				}
-
-				for (int i = last_row; i > 0; i--) {
-					for (int j = 0; j < getNumberOfColumns(); j++) {
-
-						board[i][j] = board[i - 1][j];
-
-					}
+				for (int j = 0; j < getNumberOfColumns(); j++) {
+					board[rows][j] = board[rows - 1][j];
 				}
 
+				for (int i = rows - 1; i > 0; i--) {
+					for (int j = 0; j < getNumberOfColumns(); j++) {
+						board[i][j] = board[i - 1][j];
+						if (i == 1) {
+							board[0][j] = null;
+						}
+					}
+					if (i == 1) {
+						break;
+					}
+				}
+				rows--;
 				ret++;
-//				last_row--;
 			} else {
 				last_row--;
+
 			}
-
 			geht = true;
-
 		}
-
 		return ret;
 	}
 
