@@ -35,6 +35,7 @@ public class MyPiece implements Piece {
 
 	public MyPiece(PieceType pt, Rotation_time rot) {
 		Rotation_time rotation = rot;
+		pieceType = pt;
 		switch (pt) {
 		case I:
 			switch (rotation) {

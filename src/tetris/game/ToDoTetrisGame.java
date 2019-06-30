@@ -42,7 +42,7 @@ public class ToDoTetrisGame implements TetrisGame {
 	public Piece getCurrentPiece() { // false
 
 //		stein = new MyPiece(pt, rot)
-		return stein;
+		return nextStein;
 	}
 
 	@Override

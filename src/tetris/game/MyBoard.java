@@ -85,7 +85,8 @@ public class MyBoard implements Board {
 				if (Body[i][j]) {
 					x0 = i - x;
 					y0 = j - y;
-					if (x0 + row < 0 || x0 + row >= Body.length || y0 + column < 0 || y0 + column >= Body[0].length) {
+					
+					if (x0 + row < 0 || x0 + row >= height || y0 + column < 0 || y0 + column >= width) {
 						return false;
 					} // added new
 					if (board[x0 + row][y0 + column] == null) {
