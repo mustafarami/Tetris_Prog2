@@ -2,6 +2,7 @@ package tetris.game;
 
 import java.util.Random;
 
+import sun.security.provider.ConfigFile.Spi;
 import tetris.game.pieces.MyPieceFactory;
 //import sun.security.mscapi.KeyStore.MY;
 //import sun.security.provider.ConfigFile.Spi;
@@ -147,9 +148,9 @@ public class ToDoTetrisGame implements TetrisGame {
 		nextStein = pf.getNextRandomPiece();
 		
 		// TODO richtige startposition
-		if(SpielPlatz.canAddPiece(p, 0, 0)) {
+		if(SpielPlatz.canAddPiece(p, 2, SpielPlatz.getNumberOfColumns()/2)) {
 			
-			SpielPlatz.addPiece(p, 0, 0);
+			SpielPlatz.addPiece(p, 2, SpielPlatz.getNumberOfColumns()/2);
 			stein = p;
 			
 		} else {
