@@ -343,5 +343,25 @@ public class MyPiece implements Piece {
 
 		return newPiece;
 	}
+	
+	
+	@Override
+	public boolean equals(Object obj) {
+		
+		if(obj instanceof MyPiece) {
+			
+			MyPiece p = (MyPiece) obj;
+			
+			if(p.pieceType == pieceType) {
+				return true;
+			} else {
+				return false;
+			}
+			
+			
+		} else {
+			return false;
+		}
+	}
 
 }

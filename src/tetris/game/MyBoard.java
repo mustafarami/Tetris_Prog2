@@ -172,7 +172,9 @@ public class MyBoard implements Board {
 		boolean geht = true;
 
 		for (int r = 0; r < getNumberOfRows(); r++) {
-
+			
+			rows = getNumberOfRows() - 1;
+			
 			for (int i = 0; i < getNumberOfColumns(); i++) { // check if a row is completed
 				if (board[rows][i] != null) {
 					geht &= true;
