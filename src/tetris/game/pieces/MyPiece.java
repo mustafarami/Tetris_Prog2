@@ -34,6 +34,10 @@ public class MyPiece implements Piece {
 	}
 
 	public MyPiece(PieceType pt, Rotation_time rot) {
+		setPiece(pt, rot);
+	}
+	
+	public void setPiece(PieceType pt, Rotation_time rot) {
 		Rotation_time rotation = rot;
 		pieceType = pt;
 		switch (pt) {
@@ -255,48 +259,54 @@ public class MyPiece implements Piece {
 //			return p;
 //		} else {return null;}
 
-		MyPiece pi = null;
 		switch (this.rotation) {
 		case first:
-			pi = new MyPiece(pieceType, Rotation_time.secound);
+			setPiece(pieceType, Rotation_time.secound);
 			break;
 		case secound:
-			pi = new MyPiece(pieceType, Rotation_time.third);
+			setPiece(pieceType, Rotation_time.third);
+//			pi = new MyPiece(pieceType, Rotation_time.third);
 			break;
 		case third:
-			pi = new MyPiece(pieceType, Rotation_time.fourth);
+			setPiece(pieceType, Rotation_time.fourth);
+//			pi = new MyPiece(pieceType, Rotation_time.fourth);
 			break;
 		case fourth:
-			pi = new MyPiece(pieceType, Rotation_time.first);
+			setPiece(pieceType, Rotation_time.first);
+//			pi = new MyPiece(pieceType, Rotation_time.first);
 			break;
 		default:
 			break;
 		}
-		return pi;
+		return this;
 
 	}
 
 	@Override
 	public Piece getCounterClockwiseRotation() {
 
-		MyPiece pi = null;
+//		MyPiece pi = null;
 		switch (this.rotation) {
 		case first:
-			pi = new MyPiece(pieceType, Rotation_time.fourth);
+			setPiece(pieceType, Rotation_time.fourth);
+//			pi = new MyPiece(pieceType, Rotation_time.fourth);
 			break;
 		case secound:
-			pi = new MyPiece(pieceType, Rotation_time.first);
+			setPiece(pieceType, Rotation_time.first);
+//			pi = new MyPiece(pieceType, Rotation_time.first);
 			break;
 		case third:
-			pi = new MyPiece(pieceType, Rotation_time.secound);
+			setPiece(pieceType, Rotation_time.secound);
+//			pi = new MyPiece(pieceType, Rotation_time.secound);
 			break;
 		case fourth:
-			pi = new MyPiece(pieceType, Rotation_time.third);
+			setPiece(pieceType, Rotation_time.third);
+//			pi = new MyPiece(pieceType, Rotation_time.third);
 			break;
 		default:
 			break;
 		}
-		return pi;
+		return this;
 
 //		if (this.rotation == Rotation_time.first) {
 //			MyPiece p = new MyPiece(pieceType, Rotation_time.fourth);

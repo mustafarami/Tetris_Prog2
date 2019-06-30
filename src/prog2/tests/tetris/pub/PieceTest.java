@@ -84,6 +84,11 @@ public class PieceTest implements PublicTest, TetrisExercise {
 	}
 
 	@Test
+	public void testOPiece() throws Exception {
+		assertRotationsEqual(pf.getOPiece(), 4);
+	}
+	
+	@Test
 	public void testTPiece() throws Exception {
 		Piece p = pf.getTPiece();
 		checkPiece(p, 3, 2, 0, 1);
