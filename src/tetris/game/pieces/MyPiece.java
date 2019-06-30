@@ -349,10 +349,19 @@ public class MyPiece implements Piece {
 	public boolean equals(Object obj) {
 		
 		if(obj instanceof MyPiece) {
-			
 			MyPiece p = (MyPiece) obj;
+			if(p.pieceType != pieceType ) {
+				return false;
+			}
+			if (p.getHeight() == p.getWidth()) {
+				if(!this.getRotationPoint().equals(p.getRotationPoint()) ) {
+					return true;
+				} else {
+					return false;
+				}
+			}
 			
-			if(p.pieceType == pieceType) {
+			if(this.getWidth() == p.getHeight() && this.getHeight() == p.getWidth()) {
 				return true;
 			} else {
 				return false;
