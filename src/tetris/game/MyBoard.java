@@ -173,13 +173,14 @@ public class MyBoard implements Board {
 
 		for (int r = 0; r < getNumberOfRows(); r++) {
 			
-			rows = getNumberOfRows() - 1;
+//			rows = getNumberOfRows() - 1;
 			
 			for (int i = 0; i < getNumberOfColumns(); i++) { // check if a row is completed
 				if (board[rows][i] != null) {
 					geht &= true;
 				} else {
 					geht = false;
+					break;
 				}
 			}
 
@@ -205,10 +206,11 @@ public class MyBoard implements Board {
 						break;
 					}
 				}
-				rows--;
+//				rows--;
 				ret++;
-			} else {
 				last_row--;
+			} else {
+				rows--;
 
 			}
 			geht = true;

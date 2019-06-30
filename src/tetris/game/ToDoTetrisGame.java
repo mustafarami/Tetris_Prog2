@@ -135,7 +135,7 @@ public class ToDoTetrisGame implements TetrisGame {
 	public void step() {
 		int deletedRows = SpielPlatz.deleteCompleteRows();
 		numberOfCompletedRows += deletedRows;
-		// TODO POINTS
+		
 		
 		Piece p = null;
 		
@@ -147,7 +147,6 @@ public class ToDoTetrisGame implements TetrisGame {
 		
 		nextStein = pf.getNextRandomPiece();
 		
-		// TODO richtige startposition
 		if(SpielPlatz.canAddPiece(p, 2, SpielPlatz.getNumberOfColumns()/2)) {
 			
 			SpielPlatz.addPiece(p, 2, SpielPlatz.getNumberOfColumns()/2);
