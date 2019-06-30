@@ -9,6 +9,7 @@ import tetris.game.pieces.MyPieceFactory;
 //import tetris.game.pieces.MyPieceFactory;
 import tetris.game.pieces.Piece;
 import tetris.game.pieces.Piece.PieceType;
+import tetris.game.pieces.PieceFactory;
 
 public class ToDoTetrisGame implements TetrisGame {
 	private Board SpielPlatz;
@@ -16,6 +17,9 @@ public class ToDoTetrisGame implements TetrisGame {
 	private Piece nextStein;
 	private PieceType pt;
 	private Random random;
+	private int numberOfCompletedRows;
+	private long points;
+	private PieceFactory pf;
 
 	public void SetBoard(Board b) {
 		this.SpielPlatz = b;
@@ -24,6 +28,9 @@ public class ToDoTetrisGame implements TetrisGame {
 	public ToDoTetrisGame(Random r) {
 		super();
 		this.random = r;
+		pf = MyTetrisFactory.createPieceFactory(r);
+		numberOfCompletedRows = 0;
+		points = 0;
 	}
 
 	@Override
@@ -57,8 +64,7 @@ public class ToDoTetrisGame implements TetrisGame {
 
 	@Override
 	public int getNumberOfCompletedRows() {
-		// TODO Auto-generated method stub
-		return 0;
+		return numberOfCompletedRows;
 	}
 
 	@Override
@@ -75,8 +81,7 @@ public class ToDoTetrisGame implements TetrisGame {
 
 	@Override
 	public long getPoints() {
-		// TODO Auto-generated method stub
-		return 0;
+			return points;
 	}
 
 	@Override
@@ -127,7 +132,29 @@ public class ToDoTetrisGame implements TetrisGame {
 
 	@Override
 	public void step() {
-		// TODO Auto-generated method stub
+		int deletedRows = SpielPlatz.deleteCompleteRows();
+		numberOfCompletedRows += deletedRows;
+		// TODO POINTS
+		
+		Piece p = null;
+		
+		if(nextStein != null) {
+			p = nextStein;
+		} else {
+			p = pf.getNextRandomPiece();
+		}
+		
+		nextStein = pf.getNextRandomPiece();
+		
+		// TODO richtige startposition
+		if(SpielPlatz.canAddPiece(p, 0, 0)) {
+			
+			SpielPlatz.addPiece(p, 0, 0);
+			stein = p;
+			
+		} else {
+			setGameOver();
+		}
 
 	}
 
