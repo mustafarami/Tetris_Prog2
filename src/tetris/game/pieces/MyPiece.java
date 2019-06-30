@@ -350,7 +350,7 @@ public class MyPiece implements Piece {
 		
 		if(obj instanceof MyPiece) {
 			MyPiece p = (MyPiece) obj;
-			if(p.pieceType != pieceType ) {
+			if(! p.pieceType.equals(this.getPieceType())) {
 				return false;
 			}
 			if (p.getHeight() == p.getWidth()) {
