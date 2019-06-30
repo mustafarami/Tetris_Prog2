@@ -16,7 +16,7 @@ public class ToDoTetrisGame implements TetrisGame {
 	private Board SpielPlatz;
 	private Piece stein;
 	private Piece nextStein;
-	private PieceType pt;
+//	private PieceType pt;
 	private Random random;
 	private int numberOfCompletedRows;
 	private long points;
@@ -52,7 +52,7 @@ public class ToDoTetrisGame implements TetrisGame {
 	}
 
 	@Override
-	public Board getBoard() { 
+	public Board getBoard() {
 		SpielPlatz = new MyBoard(MyTetrisFactory.DEFAULT_COLUMNS, MyTetrisFactory.DEFAULT_ROWS);
 		return SpielPlatz;
 	}
@@ -82,7 +82,7 @@ public class ToDoTetrisGame implements TetrisGame {
 
 	@Override
 	public long getPoints() {
-			return points;
+		return points;
 	}
 
 	@Override
@@ -93,13 +93,25 @@ public class ToDoTetrisGame implements TetrisGame {
 
 	@Override
 	public boolean moveDown() {
-		return SpielPlatz.canAddPiece(getCurrentPiece(), getPieceRow() + 1, getPieceColumn());
+		if (!SpielPlatz.canAddPiece(getCurrentPiece(), getPieceRow() + 1, getPieceColumn())) {
+			return false;
+		} else {
+			SpielPlatz.removePiece(getCurrentPiece(), getPieceRow(), getPieceColumn());
+			SpielPlatz.addPiece(getCurrentPiece(), getPieceRow() + 1, getPieceColumn());
+			return true;
+		}
 	}
 
 	@Override
-	public boolean moveLeft() {
+	public boolean moveLeft() { ///// check here
+		if (!SpielPlatz.canAddPiece(stein, getPieceRow(), getPieceColumn() - 1)) {
+			return false;
+		} else {
+			SpielPlatz.removePiece(stein, getPieceRow(), getPieceColumn());
+			SpielPlatz.addPiece(stein, getPieceRow(), getPieceColumn() - 1);
+			return true;
+		}
 
-		return SpielPlatz.canAddPiece(getCurrentPiece(), getPieceRow(), getPieceColumn() - 1);
 	}
 
 	@Override
@@ -136,22 +148,40 @@ public class ToDoTetrisGame implements TetrisGame {
 		int deletedRows = SpielPlatz.deleteCompleteRows();
 		numberOfCompletedRows += deletedRows;
 		
+		switch (deletedRows) {
+		case 1:
+			points += 100;
+			break;
+		case 2:
+			points += 300;
+			break;
+		case 3:
+			points += 500;
+			break;
+		case 4:
+			points += 100;
+			break;
+		default:
+			break;
+		}
+		
+		
 		
 		Piece p = null;
-		
-		if(nextStein != null) {
+
+		if (nextStein != null) {
 			p = nextStein;
 		} else {
 			p = pf.getNextRandomPiece();
 		}
-		
+
 		nextStein = pf.getNextRandomPiece();
-		
-		if(SpielPlatz.canAddPiece(p, 2, SpielPlatz.getNumberOfColumns()/2)) {
-			
-			SpielPlatz.addPiece(p, 2, SpielPlatz.getNumberOfColumns()/2);
+
+		if (SpielPlatz.canAddPiece(p, 2, SpielPlatz.getNumberOfColumns() / 2)) {
+
+			SpielPlatz.addPiece(p, 2, SpielPlatz.getNumberOfColumns() / 2);
 			stein = p;
-			
+
 		} else {
 			setGameOver();
 		}

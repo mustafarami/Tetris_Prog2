@@ -1,6 +1,7 @@
 package prog2.tests.tetris.pub;
 
-import static org.junit.Assert.assertEquals;
+//import static org.junit.Assert.assertEquals;
+//import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 
 import java.util.Random;
@@ -87,13 +88,15 @@ public class BoardTest implements PublicTest, TetrisExercise {
 //		Piece pieceo10 = pf.getOPiece();
 //		Piece pieceo11 = pf.getOPiece();
 //		Piece pieceo12 = pf.getOPiece();
+//		Piece pieceee  = pf.getOPiece();
 //		
-//		board.addPiece(pieceo1, 4, 1);
-//		board.addPiece(pieceo2, 5, 3);
-//		board.addPiece(pieceo3, 6, 5);
-//		board.addPiece(pieceo4, 3, 7);
-//		board.addPiece(pieceo5, 3, 9);
-//		board.addPiece(pieceo6, 3, 17);
+//		board.addPiece(pieceee, 12, 1);
+//		board.addPiece(pieceo1, 10, 1);
+//		board.addPiece(pieceo2, 10, 3);
+//		board.addPiece(pieceo3, 10, 5);
+//		board.addPiece(pieceo4, 10, 7);
+//		board.addPiece(pieceo5, 10, 9);
+//		board.addPiece(pieceo6, 10, 11);
 //		board.addPiece(pieceo7, 10, 13);
 //		board.addPiece(pieceo8, 10, 15);
 //		board.addPiece(pieceo9, 10, 17);
@@ -102,7 +105,7 @@ public class BoardTest implements PublicTest, TetrisExercise {
 //		board.addPiece(pieceo12, 10, 23);
 //		
 //		int deletedRows = board.deleteCompleteRows();
-//		assertEquals(2, deletedRows);
+//		assertEquals(4, deletedRows);
 //
 //	}
 	
