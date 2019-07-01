@@ -104,20 +104,36 @@ public class ToDoTetrisGame implements TetrisGame {
 
 	@Override
 	public boolean moveLeft() { ///// check here
+		SpielPlatz.removePiece(stein, getPieceRow(), getPieceColumn());
 		if (!SpielPlatz.canAddPiece(stein, getPieceRow(), getPieceColumn() - 1)) {
+			SpielPlatz.addPiece(stein, getPieceRow(), getPieceColumn());
 			return false;
 		} else {
 			SpielPlatz.removePiece(stein, getPieceRow(), getPieceColumn());
-			SpielPlatz.addPiece(stein, getPieceRow(), getPieceColumn() - 1);
+			SpielPlatz.addPiece(stein, getPieceRow(), getPieceColumn() + 1);
 			return true;
 		}
+		
+	
+//		if (!SpielPlatz.canAddPiece(stein, getPieceRow(), getPieceColumn() - 1)) {
+//			return false;
+//		} else {
+//			SpielPlatz.removePiece(stein, getPieceRow(), getPieceColumn());
+//			SpielPlatz.addPiece(stein, getPieceRow(), getPieceColumn() - 1);
+//			return true;
+//		}
 
 	}
 
 	@Override
 	public boolean moveRight() {
-
-		return SpielPlatz.canAddPiece(getCurrentPiece(), getPieceRow(), getPieceColumn() + 1);
+		if (!SpielPlatz.canAddPiece(stein, getPieceRow(), getPieceColumn() + 1)) {
+			return false;
+		} else {
+			SpielPlatz.removePiece(stein, getPieceRow(), getPieceColumn());
+			SpielPlatz.addPiece(stein, getPieceRow(), getPieceColumn() + 1);
+			return true;
+		}
 	}
 
 	@Override
@@ -164,8 +180,6 @@ public class ToDoTetrisGame implements TetrisGame {
 		default:
 			break;
 		}
-		
-		
 		
 		Piece p = null;
 

@@ -36,7 +36,7 @@ public class MyPiece implements Piece {
 	public MyPiece(PieceType pt, Rotation_time rot) {
 		setPiece(pt, rot);
 	}
-	
+
 	public void setPiece(PieceType pt, Rotation_time rot) {
 		Rotation_time rotation = rot;
 		pieceType = pt;
@@ -308,22 +308,6 @@ public class MyPiece implements Piece {
 		}
 		return this;
 
-//		if (this.rotation == Rotation_time.first) {
-//			MyPiece p = new MyPiece(pieceType, Rotation_time.fourth);
-//			return p;
-//		} else if (this.rotation == Rotation_time.secound) {
-//			MyPiece p = new MyPiece(pieceType, Rotation_time.first);
-//			return p;
-//		} else if (this.rotation == Rotation_time.third) {
-//			MyPiece p = new MyPiece(pieceType, Rotation_time.secound);
-//			return p;
-//		} else if (this.rotation == Rotation_time.fourth){
-//			MyPiece p = new MyPiece(pieceType, Rotation_time.third);
-//			return p;
-//		} else {
-//			return null;
-//		}
-
 	}
 
 	@Override
@@ -343,34 +327,25 @@ public class MyPiece implements Piece {
 
 		return newPiece;
 	}
-	
-	
+
 	@Override
 	public boolean equals(Object obj) {
-		
-		if(obj instanceof MyPiece) {
+
+		if (obj instanceof MyPiece) {
 			MyPiece p = (MyPiece) obj;
-			if(!p.pieceType.equals(this.getPieceType())) {
+			if (!p.pieceType.equals(this.getPieceType())) {
 				return false;
 			}
-			if (p.getHeight() == p.getWidth()) {
-				if(!this.getRotationPoint().equals(p.getRotationPoint()) ) {
-					return true;
-				} else {
-					return false;
-				}
+
+			if (!p.rotationPoint.equals(this.getRotationPoint())) {
+				return false;
 			}
-			
-			if(this.getWidth() == p.getHeight() && this.getHeight() == p.getWidth()) {
+
+			if (p.rotation == this.rotation) {
 				return true;
-			} else {
-				return false;
 			}
-			
-			
-		} else {
+		} 
 			return false;
-		}
 	}
 
 }
