@@ -291,25 +291,25 @@ public class MyPiece implements Piece {
 //		MyPiece pi = null;
 		switch (this.rotation) {
 		case first:
-			setPiece(pieceType, Rotation_time.fourth);
+			return new MyPiece(pieceType, Rotation_time.fourth);
 //			pi = new MyPiece(pieceType, Rotation_time.fourth);
-			break;
+//			break;
 		case secound:
-			setPiece(pieceType, Rotation_time.first);
+			return new MyPiece(pieceType, Rotation_time.first);
 //			pi = new MyPiece(pieceType, Rotation_time.first);
-			break;
+//			break;
 		case third:
-			setPiece(pieceType, Rotation_time.secound);
+			return new MyPiece(pieceType, Rotation_time.secound);
 //			pi = new MyPiece(pieceType, Rotation_time.secound);
-			break;
+//			break;
 		case fourth:
-			setPiece(pieceType, Rotation_time.third);
+			return new MyPiece(pieceType, Rotation_time.third);
 //			pi = new MyPiece(pieceType, Rotation_time.third);
-			break;
+//			break;
 		default:
 			break;
 		}
-		return this;
+		return null;
 
 	}
 

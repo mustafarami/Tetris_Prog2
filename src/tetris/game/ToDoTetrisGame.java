@@ -128,7 +128,7 @@ public class ToDoTetrisGame implements TetrisGame {
 			}
 
 		} catch (IllegalArgumentException e) {
-
+			
 		}
 		SpielPlatz.addPiece(getCurrentPiece(), getPieceRow() + 1, getPieceColumn());
 		this.pieceRow += 1;
