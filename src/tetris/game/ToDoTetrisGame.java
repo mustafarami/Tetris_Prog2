@@ -2,7 +2,7 @@ package tetris.game;
 
 import java.util.Random;
 
-import com.sun.org.apache.bcel.internal.generic.CPInstruction;
+//import com.sun.org.apache.bcel.internal.generic.CPInstruction;
 
 //import sun.security.provider.ConfigFile.Spi;
 import tetris.game.pieces.MyPieceFactory;
@@ -44,7 +44,7 @@ public class ToDoTetrisGame implements TetrisGame {
 //		pf = MyTetrisFactory.createPieceFactory(r);
 		numberOfCompletedRows = 0;
 		this.points = 0;
-		this.Abdo=0;
+		this.Abdo = 0;
 	}
 
 	@Override
@@ -73,9 +73,9 @@ public class ToDoTetrisGame implements TetrisGame {
 
 	@Override
 	public Piece getNextPiece() {
-		if(newPiece()) {
-		this.stein = this.pf.getNextRandomPiece();
-		
+		if (newPiece()) {
+			this.stein = this.pf.getNextRandomPiece();
+
 		}
 		return this.stein;
 	}
@@ -209,16 +209,6 @@ public class ToDoTetrisGame implements TetrisGame {
 		SpielPlatz.addPiece(getCurrentPiece(), getPieceRow(), getPieceColumn());
 		return false;
 
-		// SpielPlatz.removePiece(getCurrentPiece(), getPieceRow(), getPieceColumn());
-//		if (!SpielPlatz.canAddPiece(getCurrentPiece(), getPieceRow(), getPieceColumn() + 1)) {
-//			SpielPlatz.addPiece(getCurrentPiece(), getPieceRow(), getPieceColumn());
-//
-//			return false;
-//		} else {
-//			SpielPlatz.addPiece(stein, getPieceRow(), getPieceColumn() + 1);
-//			this.pieceColoumn += 1;
-//			return true;
-//		}
 	}
 
 	@Override
@@ -238,12 +228,11 @@ public class ToDoTetrisGame implements TetrisGame {
 		} else {
 			this.pieceRow = 2;
 			this.pieceColoumn = this.SpielPlatz.getNumberOfColumns() / 2;
-			this.points=this.SpielPlatz.deleteCompleteRows();
+			this.points = this.SpielPlatz.deleteCompleteRows();
 			if (!this.SpielPlatz.canAddPiece(stein, this.pieceRow, this.pieceColoumn)) {
 				return false;
 			} else {
 
-//				getPoints();
 				this.pieceRow = 2;
 				this.pieceColoumn = this.SpielPlatz.getNumberOfColumns() / 2;
 				this.SpielPlatz.addPiece(stein, this.pieceRow, this.pieceColoumn);
@@ -273,29 +262,12 @@ public class ToDoTetrisGame implements TetrisGame {
 
 	@Override
 	public void step() {
-		if (!moveDown()) {
-			if (!newPiece()) {
+		if (moveDown()) {
 
-				Piece p = null;
-
-				if (nextStein != null) {
-					p = nextStein;
-				} else {
-					p = pf.getNextRandomPiece();
-				}
-
-				nextStein = pf.getNextRandomPiece();
-
-//				if (SpielPlatz.canAddPiece(p, 2, SpielPlatz.getNumberOfColumns() / 2)) {
-//
-//					SpielPlatz.addPiece(p, 2, SpielPlatz.getNumberOfColumns() / 2);
-				stein = p;
-
-//				} else 
-
-			}
+		} else {
+			newPiece();
 		}
-		setGameOver();
+
 	}
 
 }
