@@ -18,12 +18,12 @@ public class MyBoard implements Board {
 	public MyBoard(int h, int w) {
 		this.height = h;
 		this.width = w;
-		board = new PieceType[h][w];
+		this.board = new PieceType[h][w];
 	}
 
 	@Override
 	public PieceType[][] getBoard() {
-		return board;
+		return this.board;
 	}
 
 	@Override
