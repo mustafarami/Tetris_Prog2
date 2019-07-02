@@ -265,24 +265,23 @@ public class MyPiece implements Piece {
 
 		switch (this.rotation) {
 		case first:
-			setPiece(pieceType, Rotation_time.secound);
-			break;
+			return new MyPiece(pieceType, Rotation_time.secound);
 		case secound:
-			setPiece(pieceType, Rotation_time.third);
+			return new MyPiece(pieceType, Rotation_time.third);
 //			pi = new MyPiece(pieceType, Rotation_time.third);
-			break;
+			
 		case third:
-			setPiece(pieceType, Rotation_time.fourth);
+			return new MyPiece(pieceType, Rotation_time.fourth);
 //			pi = new MyPiece(pieceType, Rotation_time.fourth);
-			break;
+			
 		case fourth:
-			setPiece(pieceType, Rotation_time.first);
+			return new MyPiece(pieceType, Rotation_time.first);
 //			pi = new MyPiece(pieceType, Rotation_time.first);
-			break;
+			
 		default:
 			break;
 		}
-		return this;
+		return null;
 
 	}
 
@@ -335,12 +334,13 @@ public class MyPiece implements Piece {
 	@Override
 	public boolean equals(Object obj) {
 
-		if (obj instanceof MyPiece) {
-			MyPiece p = (MyPiece) obj;
-			if (!(p.pieceType.equals(this.getPieceType()))) {
+		if (obj instanceof Piece) {
+			Piece p = (Piece) obj;
+			if (!(p.getPieceType().equals(this.getPieceType()))) {
 				return false;
 			}
-			
+			System.out.println(this.getHeight() + " " + p.getHeight());
+
 			if(this.getHeight() != p.getHeight() || this.getWidth() != p.getWidth()) {
 			return false;
 			}
@@ -355,13 +355,14 @@ public class MyPiece implements Piece {
 			
 			
 
-			if (!p.rotationPoint.equals(this.getRotationPoint())) {
+			if (!p.getRotationPoint().equals(this.getRotationPoint())) {
 				return false;
 			}
 
-			if (p.rotation.equals(this.rotation)) {
-				return true;
-			}
+//			if (p.rotation.equals(this.rotation)) {
+//				return true;
+//			}
+			return true;
 		} 
 			return false;
 	}
