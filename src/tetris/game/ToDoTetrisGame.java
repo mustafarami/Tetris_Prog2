@@ -21,22 +21,32 @@ public class ToDoTetrisGame implements TetrisGame {
 	private int numberOfCompletedRows;
 	private long points;
 	private PieceFactory pf;
+	private int Row;
+	private int Coloumn;
+	private int pieceColoumn;
+	private int pieceRow;
 
 	public void SetBoard(Board b) {
 		this.SpielPlatz = b;
 	}
 
-	public ToDoTetrisGame(Random r) {
+	public ToDoTetrisGame(MyPieceFactory piece, Board b) {
 		super();
-		this.random = r;
-		pf = MyTetrisFactory.createPieceFactory(r);
+//		this.random = r;
+		this.pf = piece;
+		this.Row = b.getNumberOfRows();
+		this.Coloumn = b.getNumberOfColumns();
+		this.SpielPlatz = b;
+		this.stein = piece.getNextRandomPiece();
+
+//		pf = MyTetrisFactory.createPieceFactory(r);
 		numberOfCompletedRows = 0;
 		points = 0;
 	}
 
 	@Override
 	public void addObserver(GameObserver observer) {
-		// TODO Auto-generated method stub
+//		 TODO Auto-generated method stub
 
 	}
 
@@ -48,7 +58,8 @@ public class ToDoTetrisGame implements TetrisGame {
 
 	@Override
 	public Piece getCurrentPiece() { // false
-		return nextStein;
+//		this.stein = nextStein;
+		return stein;
 	}
 
 	@Override
@@ -59,7 +70,7 @@ public class ToDoTetrisGame implements TetrisGame {
 
 	@Override
 	public Piece getNextPiece() {
-		nextStein = new MyPieceFactory(random).getNextRandomPiece();
+		nextStein = this.pf.getNextRandomPiece();
 		return nextStein;
 	}
 
@@ -70,7 +81,7 @@ public class ToDoTetrisGame implements TetrisGame {
 
 	@Override
 	public int getPieceColumn() {
-		// TODO Auto-generated method stub
+
 		return 0;
 	}
 
@@ -82,6 +93,23 @@ public class ToDoTetrisGame implements TetrisGame {
 
 	@Override
 	public long getPoints() {
+		switch (numberOfCompletedRows) {
+		case 1:
+			points += 100;
+			break;
+		case 2:
+			points += 300;
+			break;
+		case 3:
+			points += 500;
+			break;
+		case 4:
+			points += 100;
+			break;
+		default:
+			break;
+		}
+
 		return points;
 	}
 
@@ -93,52 +121,64 @@ public class ToDoTetrisGame implements TetrisGame {
 
 	@Override
 	public boolean moveDown() {
+		SpielPlatz.removePiece(getCurrentPiece(), getPieceRow(), getPieceColumn());
 		if (!SpielPlatz.canAddPiece(getCurrentPiece(), getPieceRow() + 1, getPieceColumn())) {
+			SpielPlatz.addPiece(stein, getPieceRow(), getPieceColumn());
+
 			return false;
 		} else {
-			SpielPlatz.removePiece(getCurrentPiece(), getPieceRow(), getPieceColumn());
+
 			SpielPlatz.addPiece(getCurrentPiece(), getPieceRow() + 1, getPieceColumn());
+			this.pieceRow += 1;
 			return true;
 		}
 	}
 
 	@Override
 	public boolean moveLeft() { ///// check here
-		SpielPlatz.removePiece(stein, getPieceRow(), getPieceColumn());
-		if (!SpielPlatz.canAddPiece(stein, getPieceRow(), getPieceColumn() - 1)) {
-			SpielPlatz.addPiece(stein, getPieceRow(), getPieceColumn());
+		if (!SpielPlatz.canRemovePiece(getCurrentPiece(), getPieceRow(), getPieceColumn())) {
+			return false;
+		}
+		SpielPlatz.removePiece(getCurrentPiece(), getPieceRow(), getPieceColumn());
+		if (!SpielPlatz.canAddPiece(getCurrentPiece(), getPieceRow(), getPieceColumn() - 1)) {
+			SpielPlatz.addPiece(getCurrentPiece(), getPieceRow(), getPieceColumn());
 			return false;
 		} else {
-			SpielPlatz.removePiece(stein, getPieceRow(), getPieceColumn());
-			SpielPlatz.addPiece(stein, getPieceRow(), getPieceColumn() + 1);
+			SpielPlatz.addPiece(getCurrentPiece(), getPieceRow(), getPieceColumn() - 1);
+			this.pieceColoumn -= 1;
 			return true;
 		}
-		
-	
-//		if (!SpielPlatz.canAddPiece(stein, getPieceRow(), getPieceColumn() - 1)) {
-//			return false;
-//		} else {
-//			SpielPlatz.removePiece(stein, getPieceRow(), getPieceColumn());
-//			SpielPlatz.addPiece(stein, getPieceRow(), getPieceColumn() - 1);
-//			return true;
-//		}
 
 	}
 
 	@Override
 	public boolean moveRight() {
-		if (!SpielPlatz.canAddPiece(stein, getPieceRow(), getPieceColumn() + 1)) {
+		SpielPlatz.removePiece(getCurrentPiece(), getPieceRow(), getPieceColumn());
+		if (!SpielPlatz.canAddPiece(getCurrentPiece(), getPieceRow(), getPieceColumn() + 1)) {
+			SpielPlatz.addPiece(getCurrentPiece(), getPieceRow(), getPieceColumn());
+
 			return false;
 		} else {
-			SpielPlatz.removePiece(stein, getPieceRow(), getPieceColumn());
 			SpielPlatz.addPiece(stein, getPieceRow(), getPieceColumn() + 1);
+			this.pieceColoumn += 1;
 			return true;
 		}
 	}
 
 	@Override
 	public boolean newPiece() {
-		return false;
+		int x = 0;
+		if (!SpielPlatz.canAddPiece(getNextPiece(), 2, SpielPlatz.getNumberOfColumns() / 2)) {
+			return false;
+		} else {
+			x = SpielPlatz.deleteCompleteRows();
+			this.numberOfCompletedRows = x;
+			getPoints();
+			SpielPlatz.addPiece(getCurrentPiece(), 2, SpielPlatz.getNumberOfColumns() / 2);
+			this.pieceRow = 2;
+			this.pieceColoumn = SpielPlatz.getNumberOfColumns() / 2;
+			return true;
+		}
 	}
 
 	@Override
@@ -161,45 +201,29 @@ public class ToDoTetrisGame implements TetrisGame {
 
 	@Override
 	public void step() {
-		int deletedRows = SpielPlatz.deleteCompleteRows();
-		numberOfCompletedRows += deletedRows;
-		
-		switch (deletedRows) {
-		case 1:
-			points += 100;
-			break;
-		case 2:
-			points += 300;
-			break;
-		case 3:
-			points += 500;
-			break;
-		case 4:
-			points += 100;
-			break;
-		default:
-			break;
+		if (!moveDown()) {
+			if (!newPiece()) {
+
+				Piece p = null;
+
+				if (nextStein != null) {
+					p = nextStein;
+				} else {
+					p = pf.getNextRandomPiece();
+				}
+
+				nextStein = pf.getNextRandomPiece();
+
+//				if (SpielPlatz.canAddPiece(p, 2, SpielPlatz.getNumberOfColumns() / 2)) {
+//
+//					SpielPlatz.addPiece(p, 2, SpielPlatz.getNumberOfColumns() / 2);
+				stein = p;
+
+//				} else 
+
+			}
 		}
-		
-		Piece p = null;
-
-		if (nextStein != null) {
-			p = nextStein;
-		} else {
-			p = pf.getNextRandomPiece();
-		}
-
-		nextStein = pf.getNextRandomPiece();
-
-		if (SpielPlatz.canAddPiece(p, 2, SpielPlatz.getNumberOfColumns() / 2)) {
-
-			SpielPlatz.addPiece(p, 2, SpielPlatz.getNumberOfColumns() / 2);
-			stein = p;
-
-		} else {
-			setGameOver();
-		}
-
+		setGameOver();
 	}
 
 }

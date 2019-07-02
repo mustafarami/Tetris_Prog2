@@ -336,12 +336,26 @@ public class MyPiece implements Piece {
 			if (!p.pieceType.equals(this.getPieceType())) {
 				return false;
 			}
+			
+			if(this.getHeight() != p.getHeight() || this.getWidth() != p.getWidth()) {
+			return false;
+			}
+			
+			for(int i = 0; i < this.getHeight(); i ++) {
+				for(int j = 0; j < this.getWidth(); j ++) {
+					if(this.getBody()[i][j] != p.getBody()[i][j]) {
+						return false;
+					}
+				}
+			}
+			
+			
 
 			if (!p.rotationPoint.equals(this.getRotationPoint())) {
 				return false;
 			}
 
-			if (p.rotation == this.rotation) {
+			if (p.rotation.equals(this.rotation)) {
 				return true;
 			}
 		} 

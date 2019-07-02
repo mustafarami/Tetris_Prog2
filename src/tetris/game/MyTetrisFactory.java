@@ -27,9 +27,9 @@ public class MyTetrisFactory {
 	 * @param r the random number generator to use for the PieceFactory.
 	 */
 	static public TetrisGame createTetrisGame(Random r) {
-
+		MyPieceFactory PF = new MyPieceFactory(r);
 		Board b = createBoard(DEFAULT_ROWS, DEFAULT_COLUMNS);
-		ToDoTetrisGame game = new ToDoTetrisGame(r);
+		ToDoTetrisGame game = new ToDoTetrisGame(PF, b);
 		game.SetBoard(b);
 		return game;
 

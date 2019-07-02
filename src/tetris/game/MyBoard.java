@@ -45,7 +45,6 @@ public class MyBoard implements Board {
 			int y = piece.getRotationPoint().getColumn();
 			int x0 = 0;
 			int y0 = 0;
-			// Hier muss es unbedinget gecheckt werden
 			Body = piece.getBody();
 
 			for (int i = 0; i < Body.length; i++) {
