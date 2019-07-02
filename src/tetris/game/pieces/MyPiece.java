@@ -139,7 +139,7 @@ public class MyPiece implements Piece {
 			case fourth:
 				this.piece = O_one;
 				this.rotationPoint = new Point(0, 1);
-				this.rotation = Rotation_time.first;
+				this.rotation = Rotation_time.fourth;
 				break;
 			default:
 				break;

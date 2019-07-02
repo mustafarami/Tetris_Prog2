@@ -18,7 +18,7 @@ public class MyBoard implements Board {
 	public MyBoard(int h, int w) {
 		this.height = h;
 		this.width = w;
-		board = new PieceType[height][width];
+		board = new PieceType[h][w];
 	}
 
 	@Override
@@ -65,10 +65,15 @@ public class MyBoard implements Board {
 	}
 
 	@Override
-	public boolean canAddPiece(Piece piece, int row, int column)  {
+	public boolean canAddPiece(Piece piece, int row, int column) {
 		if (row >= getNumberOfRows() || column >= getNumberOfColumns()) {
 			return false;
 		}
+
+		if (row < 0 || column < 0) {
+			return false;
+		}
+
 		if (piece == null) {
 			throw new IllegalArgumentException();
 		}
@@ -130,6 +135,16 @@ public class MyBoard implements Board {
 
 	@Override
 	public boolean canRemovePiece(Piece piece, int row, int column) {
+		if (row >= getNumberOfRows() || column >= getNumberOfColumns()) {
+			return false;
+		}
+		if (row < 0 || column < 0) {
+			return false;
+		}
+
+		if (piece == null) {
+			throw new IllegalArgumentException();
+		}
 
 		int x = piece.getRotationPoint().getRow(); // it was Rotation_Point.getRow()/.getColumn()
 		int y = piece.getRotationPoint().getColumn();
@@ -171,9 +186,9 @@ public class MyBoard implements Board {
 		boolean geht = true;
 
 		for (int r = 0; r < getNumberOfRows(); r++) {
-			
+
 //			rows = getNumberOfRows() - 1;
-			
+
 			for (int i = 0; i < getNumberOfColumns(); i++) { // check if a row is completed
 				if (board[rows][i] != null) {
 					geht &= true;

@@ -63,7 +63,7 @@ public class ToDoTetrisGame implements TetrisGame {
 
 	@Override
 	public Board getBoard() {
-		SpielPlatz = new MyBoard(MyTetrisFactory.DEFAULT_COLUMNS, MyTetrisFactory.DEFAULT_ROWS);
+		SpielPlatz = new MyBoard( MyTetrisFactory.DEFAULT_ROWS, MyTetrisFactory.DEFAULT_COLUMNS);
 		return SpielPlatz;
 	}
 
@@ -81,13 +81,13 @@ public class ToDoTetrisGame implements TetrisGame {
 	@Override
 	public int getPieceColumn() {
 
-		return pieceColoumn;
+		return this.pieceColoumn;
 	}
 
 	@Override
 	public int getPieceRow() {
 
-		return pieceRow;
+		return this.pieceRow;
 	}
 
 	@Override
@@ -128,21 +128,45 @@ public class ToDoTetrisGame implements TetrisGame {
 			}
 
 		} catch (IllegalArgumentException e) {
-			
+
 		}
 		SpielPlatz.addPiece(getCurrentPiece(), getPieceRow() + 1, getPieceColumn());
 		this.pieceRow += 1;
-		nextStein = getCurrentPiece();
+//		nextStein = getCurrentPiece();
 		return true;
 
 	}
 
 	@Override
 	public boolean moveLeft() { ///// check here
+		if (!SpielPlatz.canRemovePiece(getCurrentPiece(), getPieceRow(), getPieceColumn())) {
+			return false;
+		}
+		
+		try {
+		SpielPlatz.removePiece(getCurrentPiece(), getPieceRow(), getPieceColumn());
 
+		} catch (IllegalArgumentException e) {
+
+		}
+			if (!SpielPlatz.canAddPiece(getCurrentPiece(), getPieceRow(), getPieceColumn() - 1)) {
+				SpielPlatz.addPiece(getCurrentPiece(), getPieceRow(), getPieceColumn());
+				return false;
+			}
+
+		SpielPlatz.addPiece(getCurrentPiece(), getPieceRow(), getPieceColumn() - 1);
+		this.pieceColoumn -= 1;
+//		this.pieceColoumn = getPieceColumn() -1;
+//		nextStein = getCurrentPiece();
+	
+		return true;
+	}
+
+	@Override
+	public boolean moveRight() {
 		SpielPlatz.removePiece(getCurrentPiece(), getPieceRow(), getPieceColumn());
 		try {
-			if (!SpielPlatz.canAddPiece(getCurrentPiece(), getPieceRow(), getPieceColumn() - 1)) {
+			if (!SpielPlatz.canAddPiece(getCurrentPiece(), getPieceRow(), getPieceColumn() + 1)) {
 				SpielPlatz.addPiece(stein, getPieceRow(), getPieceColumn());
 				return false;
 			}
@@ -150,25 +174,21 @@ public class ToDoTetrisGame implements TetrisGame {
 		} catch (IllegalArgumentException e) {
 
 		}
-		SpielPlatz.addPiece(getCurrentPiece(), getPieceRow(), getPieceColumn() - 1);
-		this.pieceColoumn -= 1;
-		nextStein = getCurrentPiece();
+		SpielPlatz.addPiece(getCurrentPiece(), getPieceRow(), getPieceColumn() + 1);
+		this.pieceColoumn += 1;
+//		nextStein = getCurrentPiece();
 		return true;
 
-	}
-
-	@Override
-	public boolean moveRight() {
-		SpielPlatz.removePiece(getCurrentPiece(), getPieceRow(), getPieceColumn());
-		if (!SpielPlatz.canAddPiece(getCurrentPiece(), getPieceRow(), getPieceColumn() + 1)) {
-			SpielPlatz.addPiece(getCurrentPiece(), getPieceRow(), getPieceColumn());
-
-			return false;
-		} else {
-			SpielPlatz.addPiece(stein, getPieceRow(), getPieceColumn() + 1);
-			this.pieceColoumn += 1;
-			return true;
-		}
+		// SpielPlatz.removePiece(getCurrentPiece(), getPieceRow(), getPieceColumn());
+//		if (!SpielPlatz.canAddPiece(getCurrentPiece(), getPieceRow(), getPieceColumn() + 1)) {
+//			SpielPlatz.addPiece(getCurrentPiece(), getPieceRow(), getPieceColumn());
+//
+//			return false;
+//		} else {
+//			SpielPlatz.addPiece(stein, getPieceRow(), getPieceColumn() + 1);
+//			this.pieceColoumn += 1;
+//			return true;
+//		}
 	}
 
 	@Override

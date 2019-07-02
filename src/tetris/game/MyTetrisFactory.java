@@ -32,7 +32,6 @@ public class MyTetrisFactory {
 		ToDoTetrisGame game = new ToDoTetrisGame(PF, b);
 		game.SetBoard(b);
 		return game;
-
 	}
 
 	/**
