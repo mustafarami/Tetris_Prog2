@@ -26,6 +26,8 @@ public class ToDoTetrisGame implements TetrisGame {
 	private int Coloumn;
 	private int pieceColoumn;
 	private int pieceRow;
+	boolean ram = false;
+
 	private long Abdo;
 	private GameObserver GaOb;
 
@@ -198,10 +200,6 @@ public class ToDoTetrisGame implements TetrisGame {
 		SpielPlatz.addPiece(getCurrentPiece(), getPieceRow(), getPieceColumn());
 		return false;
 
-//		this.pieceColoumn = getPieceColumn() -1;
-//		nextStein = getCurrentPiece();
-
-//		return false;
 	}
 
 	@Override
@@ -292,13 +290,14 @@ public class ToDoTetrisGame implements TetrisGame {
 
 	@Override
 	public void step() {
-
 		if (moveDown()) {
 
 		} else {
-			if (this.GaOb != null) {
+			if (this.GaOb != null && ram == true) {
+
 				this.GaOb.pieceLanded();
 			}
+			ram = true;
 		}
 
 		if (newPiece()) {
