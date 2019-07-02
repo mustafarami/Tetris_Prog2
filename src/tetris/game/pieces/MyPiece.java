@@ -240,7 +240,11 @@ public class MyPiece implements Piece {
 
 	@Override
 	public boolean[][] getBody() {
-		return piece;
+		boolean [][] co = new boolean[getHeight()][];
+		for(int i =0; i < getHeight(); i++) {
+			co[i]=this.piece[i].clone();
+		}
+		return co;
 	}
 
 	@Override
@@ -333,7 +337,7 @@ public class MyPiece implements Piece {
 
 		if (obj instanceof MyPiece) {
 			MyPiece p = (MyPiece) obj;
-			if (!p.pieceType.equals(this.getPieceType())) {
+			if (!(p.pieceType.equals(this.getPieceType()))) {
 				return false;
 			}
 			

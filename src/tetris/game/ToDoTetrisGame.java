@@ -16,8 +16,7 @@ public class ToDoTetrisGame implements TetrisGame {
 	private Board SpielPlatz;
 	private Piece stein;
 	private Piece nextStein;
-//	private PieceType pt;
-	private Random random;
+//	private Random random;
 	private int numberOfCompletedRows;
 	private long points;
 	private PieceFactory pf;
@@ -82,13 +81,13 @@ public class ToDoTetrisGame implements TetrisGame {
 	@Override
 	public int getPieceColumn() {
 
-		return 0;
+		return pieceColoumn;
 	}
 
 	@Override
 	public int getPieceRow() {
-		// TODO Auto-generated method stub
-		return 0;
+
+		return pieceRow;
 	}
 
 	@Override
@@ -122,32 +121,39 @@ public class ToDoTetrisGame implements TetrisGame {
 	@Override
 	public boolean moveDown() {
 		SpielPlatz.removePiece(getCurrentPiece(), getPieceRow(), getPieceColumn());
-		if (!SpielPlatz.canAddPiece(getCurrentPiece(), getPieceRow() + 1, getPieceColumn())) {
-			SpielPlatz.addPiece(stein, getPieceRow(), getPieceColumn());
+		try {
+			if (!SpielPlatz.canAddPiece(getCurrentPiece(), getPieceRow() + 1, getPieceColumn())) {
+				SpielPlatz.addPiece(stein, getPieceRow(), getPieceColumn());
+				return false;
+			}
 
-			return false;
-		} else {
+		} catch (IllegalArgumentException e) {
 
-			SpielPlatz.addPiece(getCurrentPiece(), getPieceRow() + 1, getPieceColumn());
-			this.pieceRow += 1;
-			return true;
 		}
+		SpielPlatz.addPiece(getCurrentPiece(), getPieceRow() + 1, getPieceColumn());
+		this.pieceRow += 1;
+		nextStein = getCurrentPiece();
+		return true;
+
 	}
 
 	@Override
 	public boolean moveLeft() { ///// check here
-		if (!SpielPlatz.canRemovePiece(getCurrentPiece(), getPieceRow(), getPieceColumn())) {
-			return false;
-		}
+
 		SpielPlatz.removePiece(getCurrentPiece(), getPieceRow(), getPieceColumn());
-		if (!SpielPlatz.canAddPiece(getCurrentPiece(), getPieceRow(), getPieceColumn() - 1)) {
-			SpielPlatz.addPiece(getCurrentPiece(), getPieceRow(), getPieceColumn());
-			return false;
-		} else {
-			SpielPlatz.addPiece(getCurrentPiece(), getPieceRow(), getPieceColumn() - 1);
-			this.pieceColoumn -= 1;
-			return true;
+		try {
+			if (!SpielPlatz.canAddPiece(getCurrentPiece(), getPieceRow(), getPieceColumn() - 1)) {
+				SpielPlatz.addPiece(stein, getPieceRow(), getPieceColumn());
+				return false;
+			}
+
+		} catch (IllegalArgumentException e) {
+
 		}
+		SpielPlatz.addPiece(getCurrentPiece(), getPieceRow(), getPieceColumn() - 1);
+		this.pieceColoumn -= 1;
+		nextStein = getCurrentPiece();
+		return true;
 
 	}
 

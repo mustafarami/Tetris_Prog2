@@ -65,12 +65,12 @@ public class MyBoard implements Board {
 	}
 
 	@Override
-	public boolean canAddPiece(Piece piece, int row, int column) {
+	public boolean canAddPiece(Piece piece, int row, int column)  {
 		if (row >= getNumberOfRows() || column >= getNumberOfColumns()) {
 			return false;
 		}
 		if (piece == null) {
-			return false;
+			throw new IllegalArgumentException();
 		}
 		int x = piece.getRotationPoint().getRow(); // it was Rotation_Point.getRow()/.getColumn()
 		int y = piece.getRotationPoint().getColumn();
