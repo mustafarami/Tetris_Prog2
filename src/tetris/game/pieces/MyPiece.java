@@ -240,9 +240,9 @@ public class MyPiece implements Piece {
 
 	@Override
 	public boolean[][] getBody() {
-		boolean [][] co = new boolean[getHeight()][];
-		for(int i =0; i < getHeight(); i++) {
-			co[i]=this.piece[i].clone();
+		boolean[][] co = new boolean[getHeight()][];
+		for (int i = 0; i < getHeight(); i++) {
+			co[i] = this.piece[i].clone();
 		}
 		return co;
 	}
@@ -269,15 +269,15 @@ public class MyPiece implements Piece {
 		case secound:
 			return new MyPiece(pieceType, Rotation_time.third);
 //			pi = new MyPiece(pieceType, Rotation_time.third);
-			
+
 		case third:
 			return new MyPiece(pieceType, Rotation_time.fourth);
 //			pi = new MyPiece(pieceType, Rotation_time.fourth);
-			
+
 		case fourth:
 			return new MyPiece(pieceType, Rotation_time.first);
 //			pi = new MyPiece(pieceType, Rotation_time.first);
-			
+
 		default:
 			break;
 		}
@@ -339,32 +339,27 @@ public class MyPiece implements Piece {
 			if (!(p.getPieceType().equals(this.getPieceType()))) {
 				return false;
 			}
-			System.out.println(this.getHeight() + " " + p.getHeight());
+//			System.out.println(this.getHeight() + " " + p.getHeight());
 
-			if(this.getHeight() != p.getHeight() || this.getWidth() != p.getWidth()) {
-			return false;
+			if (this.getHeight() != p.getHeight() || this.getWidth() != p.getWidth()) {
+				return false;
 			}
-			
-			for(int i = 0; i < this.getHeight(); i ++) {
-				for(int j = 0; j < this.getWidth(); j ++) {
-					if(this.getBody()[i][j] != p.getBody()[i][j]) {
+
+			for (int i = 0; i < this.getHeight(); i++) {
+				for (int j = 0; j < this.getWidth(); j++) {
+					if (this.getBody()[i][j] != p.getBody()[i][j]) {
 						return false;
 					}
 				}
 			}
-			
-			
 
 			if (!p.getRotationPoint().equals(this.getRotationPoint())) {
 				return false;
 			}
 
-//			if (p.rotation.equals(this.rotation)) {
-//				return true;
-//			}
 			return true;
-		} 
-			return false;
+		}
+		return false;
 	}
 
 }

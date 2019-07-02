@@ -163,7 +163,8 @@ public class MyBoard implements Board {
 						return false;
 					} // added new
 
-					if (pt.equals(board[x0 + row][y0 + column])) {
+					if (pt.equals(this.board[x0 + row][y0 + column])) {
+//					if(board[x0 + row][y0 + column] != null) {
 						logik = true;
 					} else {
 						return false;
